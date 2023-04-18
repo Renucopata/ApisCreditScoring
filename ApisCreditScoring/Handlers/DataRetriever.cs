@@ -18,10 +18,14 @@ namespace ApisCreditScoring.Handlers
                     string query = "SELECT * FROM general.gbage";
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
-                        SqlDataReader reader = command.ExecuteReader();
-                        var dataTable = new DataTable();
-                        dataTable.Load(reader);
-                        response = JsonConvert.SerializeObject(dataTable);
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+                            response = JsonConvert.SerializeObject(dt);
+
+
+                        }
 
                     }
                 }
@@ -35,6 +39,45 @@ namespace ApisCreditScoring.Handlers
 
 
             return response;
+        }
+
+
+        public void GetGbage3(Stream output)
+        {
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT * FROM general.gbage";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+                        var reader = command.ExecuteReader();
+                        var serializer = new JsonSerializer();
+
+                        using (var writer = new StreamWriter(output))
+                        using (var jsonWriter = new JsonTextWriter(writer))
+                        {
+                            jsonWriter.WriteStartArray();
+
+                            while (reader.Read())
+                            {
+                                var record = new object[reader.FieldCount];
+                                reader.GetValues(record);
+
+                                serializer.Serialize(jsonWriter, record);
+                            }
+
+                            jsonWriter.WriteEndArray();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
         }
 
         public string getgbage2(SqlConnection cn)

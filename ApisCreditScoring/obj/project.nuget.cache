@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rwtag8XuIA67YqmEozr56VAXpo5JjhlM7oqZgUH/RsYCEW+YQcCKAUPj+FH5lSvlezJ6f6dIHJUtnoqeJqNi/w==",
+  "dgSpecHash": "06XebNdlYlK1HFobMSIdIO0JzHp1ojdi8mLwp++YNOD1zLkjyegmOa4KBYW8+Zn6NZwB9ExFwcpkWhSYBGXNhw==",
   "success": true,
   "projectFilePath": "D:\\ApisCreditScoring\\ApisCreditScoring\\ApisCreditScoring.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\robotltd\\.nuget\\packages\\fastjson\\2.4.0.4\\fastjson.2.4.0.4.nupkg.sha512",
     "C:\\Users\\robotltd\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\robotltd\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\robotltd\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

@@ -51,6 +51,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
+            },
+            "fastJSON": {
+              "target": "Package",
+              "version": "[2.4.0.4, )"
             }
           },
           "imports": [
