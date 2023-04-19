@@ -29,13 +29,12 @@ namespace ApisCreditScoring.Controllers
         }
 
        [HttpGet]
-        [Route("GetRegistroClientes2")]
-        public IActionResult getgage2()
+        [Route("GetdatosAdicionalesCli")]
+        public IActionResult getgbdac()
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("ConexionStage").ToString());
             DataRetriever pro = new DataRetriever();
             ModelState.Clear();
-            return Ok(pro.getgbage2(connection));
+            return Ok(pro.getgbdac());
         }
 
 

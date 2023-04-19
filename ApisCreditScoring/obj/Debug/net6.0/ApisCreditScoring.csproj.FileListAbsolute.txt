@@ -37,3 +37,6 @@ D:\ApisCreditScoring\ApisCreditScoring\obj\Debug\net6.0\refint\ApisCreditScoring
 D:\ApisCreditScoring\ApisCreditScoring\obj\Debug\net6.0\ApisCreditScoring.pdb
 D:\ApisCreditScoring\ApisCreditScoring\obj\Debug\net6.0\ApisCreditScoring.genruntimeconfig.cache
 D:\ApisCreditScoring\ApisCreditScoring\obj\Debug\net6.0\ref\ApisCreditScoring.dll
+D:\ApisCreditScoring\ApisCreditScoring\bin\Debug\net6.0\fastJSON.dll
+D:\ApisCreditScoring\ApisCreditScoring\bin\Debug\net6.0\Utf8Json.dll
+D:\ApisCreditScoring\ApisCreditScoring\bin\Debug\net6.0\MemoryPack.Core.dll
