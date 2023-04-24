@@ -22,7 +22,7 @@ namespace ApisCreditScoring.Handlers
                 try
                 {
                     conexion.Open();
-                    string query = "SELECT TOP 20 * FROM general.gbage";
+                    string query = "SELECT TOP 5 * FROM general.gbage";
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
 
@@ -74,7 +74,7 @@ namespace ApisCreditScoring.Handlers
                                     response.gbageumod = Convert.ToString(dt.Rows[i]["gbageumod"]);
                                     response.gbagefmod = Convert.ToString(dt.Rows[i]["gbagefmod"]);
                                     response.gbagefmrc = Convert.ToString(dt.Rows[i]["gbagefmrc"]);
-                                    response.gagemrcb = dt.Rows[i]["gbagestaa"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbagestaa"]) : 0;
+                                    response.gbagemrcb = dt.Rows[i]["gbagemrcb"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbagemrcb"]) : 0;
                                     response.gbagecomp = Convert.ToString(dt.Rows[i]["gbagecomp"]);
 
                                     responseList.Add(response);
@@ -198,6 +198,84 @@ namespace ApisCreditScoring.Handlers
                                     response.gbdacidac = dt.Rows[i]["gbdacidac"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacidac"]) : 0;
                                     response.gbdacdisc = Convert.ToString(dt.Rows[i]["gbdacdisc"]);
                                     response.gbdactdis = dt.Rows[i]["gbdactdis"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdactdis"]) : 0;
+
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+        public List<GBDBI_RESPONSE> getgbdbi()
+        {
+            var responseList = new List<GBDBI_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbdbi";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBDBI_RESPONSE();
+                                    response.gbdbicage = dt.Rows[i]["gbdbicage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbicage"]) : 0;
+                                    var aux = Convert.ToDateTime(dt.Rows[i]["gbdbifech"]);
+                                    response.gbdbifech = aux.ToString("yyyy-MM-dd");
+                                    response.gbdbicmon = dt.Rows[i]["gbdbicmon"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbicmon"]) : 0;
+                                    response.gbdbitviv = Convert.ToString(dt.Rows[i]["gbdbitviv"]);
+                                    response.gbdbiaemp = dt.Rows[i]["gbdbiaemp"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbiaemp"]) : 0;
+                                    response.gbdbiifij = dt.Rows[i]["gbdbiifij"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbiifij"]) : 0;
+                                    response.gbdbiivar = dt.Rows[i]["gbdbiivar"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbiivar"]) : 0;
+                                    response.gbdbigfij = dt.Rows[i]["gbdbigfij"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbigfij"]) : 0;
+                                    response.gbdbigvar = dt.Rows[i]["gbdbigvar"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbigvar"]) : 0;
+                                    response.gbdbitact = dt.Rows[i]["gbdbitact"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbitact"]) : 0;
+                                    response.gbdbitpas = dt.Rows[i]["gbdbitpas"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbitpas"]) : 0;
+                                    response.gbdbipatr = dt.Rows[i]["gbdbipatr"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbipatr"]) : 0;
+                                    response.gbdbiisal = Convert.ToString(dt.Rows[i]["gbdbiisal"]);
+                                    response.gbdbiporc = dt.Rows[i]["gbdbiporc"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbiporc"]) : 0;
+                                    response.gbdbitotv = dt.Rows[i]["gbdbitotv"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbitotv"]) : 0;
+                                    response.gbdbicper = dt.Rows[i]["gbdbitotv"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbitotv"]) : 0;
+                                    response.gbdbiinde = dt.Rows[i]["gbdbitotv"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbitotv"]) : 0;
+                                    response.gbdbitpre = dt.Rows[i]["gbdbitotv"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbitotv"]) : 0;
+                                    response.gbdbiciiu = dt.Rows[i]["gbdbiciiu"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbiciiu"]) : 0;
+                                    response.gbdbicate = Convert.ToString(dt.Rows[i]["gbdbicate"]);
+                                    response.gbdbiscii = Convert.ToString(dt.Rows[i]["gbdbiscii"]);
+                                    response.gbdbitcof = dt.Rows[i]["gbdbitcof"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbitcof"]) : 0;
+                                    response.gbdbicapa = dt.Rows[i]["gbdbicapa"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdbicapa"]) : 0;
+                                    response.gbdbiuser = Convert.ToString(dt.Rows[i]["gbdbiuser"]);
+                                    response.gbdbihora = Convert.ToString(dt.Rows[i]["gbdbihora"]);
+                                    var aux2 = Convert.ToDateTime(dt.Rows[i]["gbdbifpro"]);
+                                    response.gbdbifpro = aux.ToString("yyyy-MM-dd");
+
+                                 
 
 
                                     responseList.Add(response);

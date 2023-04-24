@@ -23,20 +23,30 @@ namespace ApisCreditScoring.Controllers
         public IActionResult getgbage()
         {
             
-            DataRetriever pro = new DataRetriever();
+            DataRetriever retriever = new DataRetriever();
             ModelState.Clear();
-            return Ok(pro.getgbage());
+            DataInsertor insertor = new DataInsertor();
+
+            return Ok(insertor.insertGbage(retriever.getgbage()));
         }
 
        [HttpGet]
         [Route("GetdatosAdicionalesCli")]
         public IActionResult getgbdac()
         {
-            DataRetriever pro = new DataRetriever();
+            DataRetriever retriever = new DataRetriever();
             ModelState.Clear();
-            return Ok(pro.getgbdac());
+            return Ok(retriever.getgbdac());
         }
 
+        [HttpGet]
+        [Route("GetDeclaracionCli")]
+        public IActionResult getgbdbi()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            return Ok(retriever.getgbdbi());
+        }
 
 
     }

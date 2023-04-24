@@ -45,7 +45,7 @@
         public string gbageumod { get; set; }
         public string gbagefmod { get; set; }
         public string gbagefmrc { get; set; }
-        public Int64 gagemrcb { get; set; }
+        public Int64 gbagemrcb { get; set; }
         public string gbagecomp { get; set; }
 
 
@@ -128,5 +128,35 @@
         public Int64 gbdacidac { get; set; }
         public string gbdacdisc { get; set; }
         public Int64 gbdactdis { get; set; }
+    }
+
+    public class GBDBI_RESPONSE
+    {
+        public Int64 gbdbicage { get; set; }
+        public string gbdbifech { get; set; }
+        public Int64 gbdbicmon { get; set; }
+        public string gbdbitviv { get; set; }
+        public Int64 gbdbiaemp { get; set; }
+        public Int64 gbdbiifij { get; set; }
+        public Int64 gbdbiivar { get; set; }
+        public Int64 gbdbigfij { get; set; }
+        public Int64 gbdbigvar { get; set; }
+        public Int64 gbdbitact { get; set; }
+        public Int64 gbdbitpas { get; set; }
+        public Int64 gbdbipatr { get; set; }
+        public string gbdbiisal { get; set; }
+        public Int64 gbdbiporc { get; set; }
+        public Int64 gbdbitotv { get; set; }
+        public Int64 gbdbicper { get; set; }
+        public Int64 gbdbiinde { get; set; }
+        public Int64 gbdbitpre { get; set; }
+        public Int64 gbdbiciiu { get; set; }
+        public string gbdbicate { get; set; }
+        public string gbdbiscii { get; set; }
+        public Int64 gbdbitcof { get; set; }
+        public Int64 gbdbicapa { get; set; }
+        public string gbdbiuser { get; set; }
+        public string gbdbihora { get; set; }
+        public string gbdbifpro { get; set; }
     }
 }
