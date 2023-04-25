@@ -7,9 +7,9 @@ namespace ApisCreditScoring.Handlers
     public class DataInsertor
     {
 
-        public bool insertGbage(List<GBAGE_RESPONSE> rows)
+        public PROCEDURE_RESULT_RESPONSE insertGbage(List<GBAGE_RESPONSE> rows)
         {
-            bool response;
+            var response = new PROCEDURE_RESULT_RESPONSE();
           
 
             try
@@ -70,12 +70,14 @@ namespace ApisCreditScoring.Handlers
 
                    
                 }
-                response = true;
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
             }
             catch (Exception e)
             {
                 string error = e.Message;
-                response = false;
+                response.procedureComplete = false;
+                response.message = error;
             }
             
             return response;

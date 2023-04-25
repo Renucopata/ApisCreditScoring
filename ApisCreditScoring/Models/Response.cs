@@ -159,4 +159,10 @@
         public string gbdbihora { get; set; }
         public string gbdbifpro { get; set; }
     }
+
+    public class PROCEDURE_RESULT_RESPONSE
+    {
+        public bool procedureComplete { get; set; }
+        public string message { get; set;}
+    }
 }

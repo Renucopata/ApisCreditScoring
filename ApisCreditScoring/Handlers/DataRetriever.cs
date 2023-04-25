@@ -22,7 +22,7 @@ namespace ApisCreditScoring.Handlers
                 try
                 {
                     conexion.Open();
-                    string query = "SELECT TOP 5 * FROM general.gbage";
+                    string query = "SELECT TOP 200 * FROM general.gbage";
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
 
@@ -70,6 +70,7 @@ namespace ApisCreditScoring.Handlers
                                     response.gbagestat = dt.Rows[i]["gbagestat"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbagestat"]) : 0;
                                     response.gbagefsta = Convert.ToString(dt.Rows[i]["gbagefsta"]);
                                     response.gbagestaa = dt.Rows[i]["gbagestaa"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbagestaa"]) : 0;
+                                    response.gbagefsaa = Convert.ToString(dt.Rows[i]["gbagefsaa"]);
                                     response.gbageumrc = Convert.ToString(dt.Rows[i]["gbageumrc"]);
                                     response.gbageumod = Convert.ToString(dt.Rows[i]["gbageumod"]);
                                     response.gbagefmod = Convert.ToString(dt.Rows[i]["gbagefmod"]);
