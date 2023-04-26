@@ -160,6 +160,30 @@
         public string gbdbifpro { get; set; }
     }
 
+    public class PRDIF_RESPONSE
+    {
+        public Int64 prdifnpre { get; set; }
+        public string prdiffreg { get; set; }
+        public Int64 prdifcarg { get; set; }
+        public Decimal prdifmori { get; set; }
+        public Decimal prdifmapr { get; set; }
+        public Decimal prdifcuot { get; set; }
+        public Decimal prdifsald { get; set; }
+        public string prdiffulp { get; set; }
+        public string prdifglos { get; set; }
+        public string prdifreve { get; set; }
+        public Int64 prdifmrcb { get; set; }
+        public string prdiffmrc { get; set; }
+        public string prdifumrc { get; set; }
+        public Int64 prdifplaz { get; set; }
+        public string prdifagen { get; set; }
+        public string prdifuser { get; set; }
+        public string prdifhora { get; set; } //DataTime on db
+        public string prdiffpro { get; set; }
+        public string prdiffapl { get; set; }
+        public Decimal prdifccap { get; set; }
+    }
+
     public class PROCEDURE_RESULT_RESPONSE
     {
         public bool procedureComplete { get; set; }

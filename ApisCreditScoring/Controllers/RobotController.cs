@@ -19,7 +19,7 @@ namespace ApisCreditScoring.Controllers
 
 
         [HttpGet] 
-        [Route("GetRegistroClientes")]
+        [Route("GetRegistroClientes")] //Terminada y probada
         public IActionResult getgbage()
         {
             
@@ -31,21 +31,42 @@ namespace ApisCreditScoring.Controllers
         }
 
        [HttpGet]
-        [Route("GetdatosAdicionalesCli")]
+        [Route("GetdatosAdicionalesCli")] //Terminada y probada
         public IActionResult getgbdac()
         {
             DataRetriever retriever = new DataRetriever();
             ModelState.Clear();
-            return Ok(retriever.getgbdac());
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbdac(retriever.getgbdac()));
         }
 
         [HttpGet]
-        [Route("GetDeclaracionCli")]
+        [Route("GetDeclaracionCli")] //no hay data en la tabla
         public IActionResult getgbdbi()
         {
             DataRetriever retriever = new DataRetriever();
             ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
             return Ok(retriever.getgbdbi());
+        }
+
+
+
+
+
+        //moduloPrestamosComerciales
+
+
+
+
+        [HttpGet]
+        [Route("GetCargosDiferidos")] //Terminada y probada
+        public IActionResult getprdif()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertPrdif(retriever.getprdif()));
         }
 
 

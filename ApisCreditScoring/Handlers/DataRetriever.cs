@@ -303,71 +303,79 @@ namespace ApisCreditScoring.Handlers
         }
 
 
-        /* public void GetGbage3(Stream output)
-         {
-             var cn = new StageConnection();
-             using (var conexion = new SqlConnection(cn.get_cadConexion()))
-             {
-                 try
-                 {
-                     conexion.Open();
-                     string query = "SELECT * FROM general.gbage";
-                     using (SqlCommand command = new SqlCommand(query, conexion))
-                     {
-                         var reader = command.ExecuteReader();
-                         var serializer = new JsonSerializer();
 
-                         using (var writer = new StreamWriter(output))
-                         using (var jsonWriter = new JsonTextWriter(writer))
-                         {
-                             jsonWriter.WriteStartArray();
 
-                             while (reader.Read())
-                             {
-                                 var record = new object[reader.FieldCount];
-                                 reader.GetValues(record);
+        //Prestamos comerciales methods-----
 
-                                 serializer.Serialize(jsonWriter, record);
-                             }
-
-                             jsonWriter.WriteEndArray();
-                         }
-                     }
-                 }
-                 catch (Exception ex)
-                 {
-                     throw;
-                 }
-             }
-         }*/
-
-        public string getgbage2(SqlConnection cn)
+        public List<PRDIF_RESPONSE> getprdif()
         {
-            string response;
-            // var cn = new StageConnection();
-
-            try
+            var responseList = new List<PRDIF_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
             {
-                cn.Open();
-                string query = "SELECT * FROM general.gbage";
-                using (SqlCommand command = new SqlCommand(query, cn))
+                try
                 {
-                    SqlDataReader reader = command.ExecuteReader();
-                    var dataTable = new DataTable();
-                    dataTable.Load(reader);
-                    response = JsonConvert.SerializeObject(dataTable);
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM prdif";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
 
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new PRDIF_RESPONSE();
+                                    response.prdifnpre = dt.Rows[i]["prdifnpre"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prdifnpre"]) : 0;
+                                    response.prdiffreg = Convert.ToString(dt.Rows[i]["prdiffreg"]);
+                                    response.prdifcarg = dt.Rows[i]["prdifcarg"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prdifcarg"]) : 0;
+                                    response.prdifmori = dt.Rows[i]["prdifmori"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prdifmori"]) : 0;
+                                    response.prdifmapr = dt.Rows[i]["prdifmapr"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prdifmapr"]) : 0;
+                                    response.prdifcuot = dt.Rows[i]["prdifcuot"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prdifcuot"]) : 0;
+                                    response.prdifsald = dt.Rows[i]["prdifsald"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prdifsald"]) : 0;
+                                    response.prdiffulp = Convert.ToString(dt.Rows[i]["prdiffulp"]);
+                                    response.prdifglos = Convert.ToString(dt.Rows[i]["prdifglos"]);
+                                    response.prdifreve = Convert.ToString(dt.Rows[i]["prdifreve"]);
+                                    response.prdifmrcb = dt.Rows[i]["prdifmrcb"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prdifmrcb"]) : 0;
+                                    response.prdiffmrc = Convert.ToString(dt.Rows[i]["prdiffmrc"]);
+                                    response.prdifumrc = Convert.ToString(dt.Rows[i]["prdifumrc"]);
+                                    response.prdifplaz = dt.Rows[i]["prdifplaz"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prdifplaz"]) : 0;
+                                    response.prdifagen = Convert.ToString(dt.Rows[i]["prdifagen"]);
+                                    response.prdifuser = Convert.ToString(dt.Rows[i]["prdifuser"]);
+                                    var aux = Convert.ToDateTime(dt.Rows[i]["prdifhora"]);
+                                    response.prdifhora = aux.ToString("yyyy-MM-dd");
+                                    response.prdiffpro = Convert.ToString(dt.Rows[i]["prdiffpro"]);
+                                    response.prdiffapl = Convert.ToString(dt.Rows[i]["prdiffapl"]);
+                                    response.prdifccap = dt.Rows[i]["prdifccap"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prdifccap"]) : 0;
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
                 }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
 
 
 
-            return response;
+            return responseList;
         }
+
+
 
 
 
