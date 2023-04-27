@@ -47,7 +47,7 @@ namespace ApisCreditScoring.Controllers
             DataRetriever retriever = new DataRetriever();
             ModelState.Clear();
             DataInsertor insertor = new DataInsertor();
-            return Ok(retriever.getgbdbi());
+            return Ok(insertor.insertGbdbi(retriever.getgbdbi()));
         }
 
 
@@ -67,6 +67,16 @@ namespace ApisCreditScoring.Controllers
             ModelState.Clear();
             DataInsertor insertor = new DataInsertor();
             return Ok(insertor.insertPrdif(retriever.getprdif()));
+        }
+
+        [HttpGet]
+        [Route("GetDeudores")] //Terminada y probada
+        public IActionResult getprdeu()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertPrdeu(retriever.getPrdeu()));
         }
 
 

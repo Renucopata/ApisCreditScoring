@@ -195,9 +195,136 @@ namespace ApisCreditScoring.Handlers
         }
 
 
+        public PROCEDURE_RESULT_RESPONSE insertGbdbi(List<GBDBI_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBDBI_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBDBI", conexion);
+
+                        cmd.Parameters.AddWithValue("gbdbicage", register.gbdbicage);
+                        cmd.Parameters.AddWithValue("gbdbifech", register.gbdbifech);
+                        cmd.Parameters.AddWithValue("gbdbicmon", register.gbdbicmon);
+                        cmd.Parameters.AddWithValue("gbdbitviv", register.gbdbitviv);
+                        cmd.Parameters.AddWithValue("gbdbiaemp", register.gbdbiaemp);
+                        cmd.Parameters.AddWithValue("gbdbiifij", register.gbdbiifij);
+                        cmd.Parameters.AddWithValue("gbdbiivar", register.gbdbiivar);
+                        cmd.Parameters.AddWithValue("gbdbigfij", register.gbdbigfij);
+                        cmd.Parameters.AddWithValue("gbdbigvar", register.gbdbigvar);
+                        cmd.Parameters.AddWithValue("gbdbitact", register.gbdbitact);
+                        cmd.Parameters.AddWithValue("gbdbitpas", register.gbdbitpas);
+                        cmd.Parameters.AddWithValue("gbdbipatr", register.gbdbipatr);
+                        cmd.Parameters.AddWithValue("gbdbiisal", register.gbdbiisal);
+                        cmd.Parameters.AddWithValue("gbdbiporc", register.gbdbiporc);
+                        cmd.Parameters.AddWithValue("gbdbitotv", register.gbdbitotv);
+                        cmd.Parameters.AddWithValue("gbdbicper", register.gbdbicper);
+                        cmd.Parameters.AddWithValue("gbdbiinde", register.gbdbiinde);
+                        cmd.Parameters.AddWithValue("gbdbitpre", register.gbdbitpre);
+                        cmd.Parameters.AddWithValue("gbdbiciiu", register.gbdbiciiu);
+                        cmd.Parameters.AddWithValue("gbdbicate", register.gbdbicate);
+                        cmd.Parameters.AddWithValue("gbdbiscii", register.gbdbiscii);
+                        cmd.Parameters.AddWithValue("gbdbitcof", register.gbdbitcof);
+                        cmd.Parameters.AddWithValue("gbdbicapa", register.gbdbicapa);
+                        cmd.Parameters.AddWithValue("gbdbiuser", register.gbdbiuser);
+                        cmd.Parameters.AddWithValue("gbdbihora", register.gbdbihora);
+                        cmd.Parameters.AddWithValue("gbdbifpro", register.gbdbifpro);
+
+
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
 
 
         //pRESTAMOS COMERCIALES INSERTORS
+
+        public PROCEDURE_RESULT_RESPONSE insertPrdeu(List<PRDIF_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (PRDIF_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_PRDIF", conexion);
+
+                        cmd.Parameters.AddWithValue("prdifnpre", register.prdifnpre);
+                        cmd.Parameters.AddWithValue("prdiffreg", register.prdiffreg);
+                        cmd.Parameters.AddWithValue("prdifcarg", register.prdifcarg);
+                        cmd.Parameters.AddWithValue("prdifmori", register.prdifmori);
+                        cmd.Parameters.AddWithValue("prdifmapr", register.prdifmapr);
+                        cmd.Parameters.AddWithValue("prdifcuot", register.prdifcuot);
+                        cmd.Parameters.AddWithValue("prdifsald", register.prdifsald);
+                        cmd.Parameters.AddWithValue("prdiffulp", register.prdiffulp);
+                        cmd.Parameters.AddWithValue("prdifglos", register.prdifglos);
+                        cmd.Parameters.AddWithValue("prdifreve", register.prdifreve);
+                        cmd.Parameters.AddWithValue("prdifmrcb", register.prdifmrcb);
+                        cmd.Parameters.AddWithValue("prdiffmrc", register.prdiffmrc);
+                        cmd.Parameters.AddWithValue("prdifumrc", register.prdifumrc);
+                        cmd.Parameters.AddWithValue("prdifplaz", register.prdifplaz);
+                        cmd.Parameters.AddWithValue("prdifagen", register.prdifagen);
+                        cmd.Parameters.AddWithValue("prdifuser", register.prdifuser);
+                        cmd.Parameters.AddWithValue("prdifhora", register.prdifhora);
+                        cmd.Parameters.AddWithValue("prdiffpro", register.prdiffpro);
+                        cmd.Parameters.AddWithValue("prdiffapl", register.prdiffapl);
+                        cmd.Parameters.AddWithValue("prdifccap", register.prdifccap);
+
+
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+
+
 
         public PROCEDURE_RESULT_RESPONSE insertPrdif(List<PRDIF_RESPONSE> rows)
         {

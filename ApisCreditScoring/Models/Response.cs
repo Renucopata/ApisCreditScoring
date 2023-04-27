@@ -184,6 +184,9 @@
         public Decimal prdifccap { get; set; }
     }
 
+
+    //Modelo PRDEU
+
     public class PROCEDURE_RESULT_RESPONSE
     {
         public bool procedureComplete { get; set; }
