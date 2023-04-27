@@ -185,7 +185,16 @@
     }
 
 
-    //Modelo PRDEU
+    public class PRDEU_RESPONSE
+    {
+        public Int64 prdeunpre { get; set; }
+        public Int64 prdeucage { get; set; }
+        public Int64 prdeutres { get; set; }
+        public string prdeuuser { get; set; }
+        public string prdeuhora { get; set; }
+        public DateTime prdeufpro { get; set; }
+    }
+
 
     public class PROCEDURE_RESULT_RESPONSE
     {

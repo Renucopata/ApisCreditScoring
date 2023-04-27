@@ -264,7 +264,7 @@ namespace ApisCreditScoring.Handlers
 
         //pRESTAMOS COMERCIALES INSERTORS
 
-        public PROCEDURE_RESULT_RESPONSE insertPrdeu(List<PRDIF_RESPONSE> rows)
+        public PROCEDURE_RESULT_RESPONSE insertPrdeu(List<PRDEU_RESPONSE> rows)
         {
             var response = new PROCEDURE_RESULT_RESPONSE();
 
@@ -275,33 +275,16 @@ namespace ApisCreditScoring.Handlers
                 using (var conexion = new SqlConnection(cn.get_cadConexion()))
                 {
                     conexion.Open();
-                    foreach (PRDIF_RESPONSE register in rows)
+                    foreach (PRDEU_RESPONSE register in rows)
                     {
-                        SqlCommand cmd = new SqlCommand("SP_INSERT_PRDIF", conexion);
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_PRDEU", conexion);
 
-                        cmd.Parameters.AddWithValue("prdifnpre", register.prdifnpre);
-                        cmd.Parameters.AddWithValue("prdiffreg", register.prdiffreg);
-                        cmd.Parameters.AddWithValue("prdifcarg", register.prdifcarg);
-                        cmd.Parameters.AddWithValue("prdifmori", register.prdifmori);
-                        cmd.Parameters.AddWithValue("prdifmapr", register.prdifmapr);
-                        cmd.Parameters.AddWithValue("prdifcuot", register.prdifcuot);
-                        cmd.Parameters.AddWithValue("prdifsald", register.prdifsald);
-                        cmd.Parameters.AddWithValue("prdiffulp", register.prdiffulp);
-                        cmd.Parameters.AddWithValue("prdifglos", register.prdifglos);
-                        cmd.Parameters.AddWithValue("prdifreve", register.prdifreve);
-                        cmd.Parameters.AddWithValue("prdifmrcb", register.prdifmrcb);
-                        cmd.Parameters.AddWithValue("prdiffmrc", register.prdiffmrc);
-                        cmd.Parameters.AddWithValue("prdifumrc", register.prdifumrc);
-                        cmd.Parameters.AddWithValue("prdifplaz", register.prdifplaz);
-                        cmd.Parameters.AddWithValue("prdifagen", register.prdifagen);
-                        cmd.Parameters.AddWithValue("prdifuser", register.prdifuser);
-                        cmd.Parameters.AddWithValue("prdifhora", register.prdifhora);
-                        cmd.Parameters.AddWithValue("prdiffpro", register.prdiffpro);
-                        cmd.Parameters.AddWithValue("prdiffapl", register.prdiffapl);
-                        cmd.Parameters.AddWithValue("prdifccap", register.prdifccap);
-
-
-
+                        cmd.Parameters.AddWithValue("prdeunpre", register.prdeunpre);
+                        cmd.Parameters.AddWithValue("prdeucage", register.prdeucage);
+                        cmd.Parameters.AddWithValue("prdeutres", register.prdeutres);
+                        cmd.Parameters.AddWithValue("prdeuuser", register.prdeuuser);
+                        cmd.Parameters.AddWithValue("prdeuhora", register.prdeuhora);
+                        cmd.Parameters.AddWithValue("prdeufpro", register.prdeufpro);
 
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.ExecuteNonQuery();
