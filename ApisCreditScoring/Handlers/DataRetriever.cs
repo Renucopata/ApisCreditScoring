@@ -172,7 +172,7 @@ namespace ApisCreditScoring.Handlers
                 try
                 {
                     conexion.Open();
-                    string query = "SELECT TOP 20 * FROM gbaec";
+                    string query = "SELECT TOP 20 * FROM gbben";
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
 
@@ -194,10 +194,123 @@ namespace ApisCreditScoring.Handlers
                                     response.gbbennom2 = Convert.ToString(dt.Rows[i]["gbbennom2"]);
                                     response.gbbenndid = Convert.ToString(dt.Rows[i]["gbbenndid"]);
                                     response.gbbenpare = dt.Rows[i]["gbbenpare"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbbenpare"]) : 0;
-                                    response.gbbenpart = dt.Rows[i]["gbbenpart"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbbenpart"]) : 0; ;
+                                    response.gbbenpart = dt.Rows[i]["gbbenpart"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbbenpart"]) : 0;
 
                               
 
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+
+        public List<GBCPO_RESPONSE> getGbcpo()
+        {
+            var responseList = new List<GBCPO_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM gbcpo";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBCPO_RESPONSE();
+                                    response.gbcpocage = dt.Rows[i]["gbcpocage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbcpocage"]) : 0;
+                                    response.gbcpofino = Convert.ToDateTime(dt.Rows[i]["gbcpofino"]);
+                                    response.gbcponmod = dt.Rows[i]["gbcponmod"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbcponmod"]) : 0; ;
+                                    response.gbcpooper = dt.Rows[i]["gbcpooper"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbcpooper"]) : 0;
+                                    response.gbcpocodb = dt.Rows[i]["gbcpocodb"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbcpocodb"]) : 0;
+                                    response.gbcpootro = Convert.ToString(dt.Rows[i]["gbcpootro"]);
+                                    response.gbcpobeni = dt.Rows[i]["gbcpobeni"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbcpobeni"]) : 0;
+                                    response.gbcpofini = Convert.ToDateTime(dt.Rows[i]["gbcpofini"]);
+                                    response.gbcpouser = Convert.ToString(dt.Rows[i]["gbcpouser"]);
+                                    response.gbcpohora = Convert.ToString(dt.Rows[i]["gbcpohora"]);
+                                    response.gbcpofpro = Convert.ToDateTime(dt.Rows[i]["gbcpofpro"]);
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+        public List<GBCSF_RESPONSE> getGbcsf()
+        {
+            var responseList = new List<GBCSF_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM gbcsf";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBCSF_RESPONSE();
+                                    response.gbcsfdpto = dt.Rows[i]["gbcsfdpto"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbcsfdpto"]) : 0;
+                                    response.gbcsfciud = Convert.ToString(dt.Rows[i]["gbcsfciud"]);
+                                    response.gbcsfdpt1 = Convert.ToString(dt.Rows[i]["gbcsfdpt1"]);
+                                    response.gbcsfdesc = Convert.ToString(dt.Rows[i]["gbcsfdesc"]);
+                                    response.gbcsfprov = Convert.ToString(dt.Rows[i]["gbcsfprov"]);
+                                    response.gbcsfsecc = Convert.ToString(dt.Rows[i]["gbcsfsecc"]);
+                                    response.gbcsfcant = Convert.ToString(dt.Rows[i]["gbcsfcant"]);
 
                                     responseList.Add(response);
                                 }
@@ -246,6 +359,129 @@ namespace ApisCreditScoring.Handlers
                                 for (int i = 0; i < dt.Rows.Count; i++)
                                 {
                                     var response = new GBDAC_RESPONSE();
+                                    response.gbdaccage = dt.Rows[i]["gbdaccage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccage"]) : 0;
+                                    response.gbdacnomb = Convert.ToString(dt.Rows[i]["gbdacnomb"]);
+                                    response.gbdacape1 = Convert.ToString(dt.Rows[i]["gbdacape1"]);
+                                    response.gbdacape2 = Convert.ToString(dt.Rows[i]["gbdacape2"]);
+                                    response.gbdacnoco = Convert.ToString(dt.Rows[i]["gbdacnoco"]);
+                                    response.gbdaccocl = Convert.ToString(dt.Rows[i]["gbdaccocl"]);
+                                    response.gbdacrefp = Convert.ToString(dt.Rows[i]["gbdacrefp"]);
+                                    response.gbdacmail = Convert.ToString(dt.Rows[i]["gbdacmail"]);
+                                    response.gbdacciud = dt.Rows[i]["gbdacciud"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacciud"]) : 0;
+                                    response.gbdacubid = Convert.ToString(dt.Rows[i]["gbdacubid"]);
+                                    response.gbdacrefd = Convert.ToString(dt.Rows[i]["gbdacrefd"]);
+                                    response.gbdacnemp = Convert.ToString(dt.Rows[i]["gbdacnemp"]);
+                                    response.gbdacccar = dt.Rows[i]["gbdacccar"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacccar"]) : 0;
+                                    response.gbdacnint = Convert.ToString(dt.Rows[i]["gbdacnint"]);
+                                    response.gbdacciuo = dt.Rows[i]["gbdacciuo"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacciuo"]) : 0;
+                                    response.gbdacubio = Convert.ToString(dt.Rows[i]["gbdacubio"]);
+                                    response.gbdacrefo = Convert.ToString(dt.Rows[i]["gbdacrefo"]);
+                                    response.gbdacfing = Convert.ToString(dt.Rows[i]["gbdacfing"]);
+                                    response.gbdacrseg = dt.Rows[i]["gbdacrseg"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacrseg"]) : 0;
+                                    response.gbdactres = dt.Rows[i]["gbdactres"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdactres"]) : 0;
+                                    response.gbdacnori = Convert.ToString(dt.Rows[i]["gbdacnori"]);
+                                    response.gbdacfcna = Convert.ToString(dt.Rows[i]["gbdacfcna"]);
+                                    response.gbdacflle = dt.Rows[i]["gbdacflle"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacflle"]) : 0;
+                                    response.gbdacstat = dt.Rows[i]["gbdacstat"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacstat"]) : 0;
+                                    response.gbdacfsta = Convert.ToString(dt.Rows[i]["gbdacfsta"]);
+                                    response.gbdacsant = dt.Rows[i]["gbdacsant"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacsant"]) : 0;
+                                    response.gbdacfant = Convert.ToString(dt.Rows[i]["gbdacfant"]);
+                                    response.gbdaccnac = dt.Rows[i]["gbdaccnac"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccnac"]) : 0;
+                                    response.gbdacmens = Convert.ToString(dt.Rows[i]["gbdacmens"]);
+                                    response.gbdactmen = Convert.ToString(dt.Rows[i]["gbdactmen"]);
+                                    response.gbdacneva = Convert.ToString(dt.Rows[i]["gbdacneva"]);
+                                    response.gbdacfeva = Convert.ToString(dt.Rows[i]["gbdacfeva"]);
+                                    response.gbdaccony = dt.Rows[i]["gbdaccony"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccony"]) : 0;
+                                    response.gbdacnive = dt.Rows[i]["gbdacnive"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacnive"]) : 0;
+                                    response.gbdaccand = dt.Rows[i]["gbdaccand"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccand"]) : 0;
+                                    response.gbdacclfa = Convert.ToString(dt.Rows[i]["gbdacclfa"]);
+                                    response.gbdacfcaa = Convert.ToString(dt.Rows[i]["gbdacfcaa"]);
+                                    response.gbdacfcal = Convert.ToString(dt.Rows[i]["gbdacfcal"]);
+                                    response.gbdacfuad = Convert.ToString(dt.Rows[i]["gbdacfuad"]);
+                                    response.gbdaccelu = Convert.ToString(dt.Rows[i]["gbdaccelu"]);
+                                    response.gbdacclas = Convert.ToString(dt.Rows[i]["gbdacclas"]);
+                                    response.gbdacnom1 = Convert.ToString(dt.Rows[i]["gbdacnom1"]);
+                                    response.gbdacnom2 = Convert.ToString(dt.Rows[i]["gbdacnom2"]);
+                                    response.gbdacape3 = Convert.ToString(dt.Rows[i]["gbdacape3"]);
+                                    response.gbdactmto = Convert.ToString(dt.Rows[i]["gbdactmto"]);
+                                    response.gbdaccncn = dt.Rows[i]["gbdaccncn"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccncn"]) : 0;
+                                    response.gbdaccnco = dt.Rows[i]["gbdaccnco"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccnco"]) : 0;
+                                    response.gbdacpaip = dt.Rows[i]["gbdacpaip"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacpaip"]) : 0;
+                                    response.gbdacrubr = dt.Rows[i]["gbdacrubr"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacrubr"]) : 0;
+                                    response.gbdacsect = dt.Rows[i]["gbdacsect"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacsect"]) : 0;
+                                    response.gbdacactv = dt.Rows[i]["gbdacactv"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacactv"]) : 0;
+                                    response.gbdacclsc = dt.Rows[i]["gbdacclsc"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacclsc"]) : 0;
+                                    response.gbdactipo = dt.Rows[i]["gbdactipo"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdactipo"]) : 0;
+                                    response.gbdacpweb = Convert.ToString(dt.Rows[i]["gbdacpweb"]);
+                                    response.gbdacobsv = Convert.ToString(dt.Rows[i]["gbdacobsv"]);
+                                    response.gbdacrepr = Convert.ToString(dt.Rows[i]["gbdacrepr"]);
+                                    response.gbdaccicl = dt.Rows[i]["gbdaccicl"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccicl"]) : 0;
+                                    response.gbdacambg = dt.Rows[i]["gbdacambg"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacambg"]) : 0;
+                                    response.gbdacidip = dt.Rows[i]["gbdacidip"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacidip"]) : 0;
+                                    response.gbdacidis = dt.Rows[i]["gbdacidis"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacidis"]) : 0;
+                                    response.gbdacciun = dt.Rows[i]["gbdacciun"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacciun"]) : 0;
+                                    response.gbdacpeso = dt.Rows[i]["gbdacpeso"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacpeso"]) : 0;
+                                    response.gbdacestt = dt.Rows[i]["gbdacestt"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacestt"]) : 0;
+                                    response.gbdacfmat = Convert.ToString(dt.Rows[i]["gbdacfmat"]);
+                                    response.gbdacnfam = dt.Rows[i]["gbdacnfam"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacnfam"]) : 0;
+                                    response.gbdaccalp = dt.Rows[i]["gbdaccalp"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccalp"]) : 0;
+                                    response.gbdaclact = dt.Rows[i]["gbdaclact"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaclact"]) : 0;
+                                    response.gbdacfiac = Convert.ToString(dt.Rows[i]["gbdacfiac"]);
+                                    response.gbdactaac = dt.Rows[i]["gbdactaac"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdactaac"]) : 0;
+                                    response.gbdactmac = dt.Rows[i]["gbdactmac"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdactmac"]) : 0;
+                                    response.gbdactdac = dt.Rows[i]["gbdactdac"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdactdac"]) : 0;
+                                    response.gbdacidac = dt.Rows[i]["gbdacidac"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdacidac"]) : 0;
+                                    response.gbdacdisc = Convert.ToString(dt.Rows[i]["gbdacdisc"]);
+                                    response.gbdactdis = dt.Rows[i]["gbdactdis"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdactdis"]) : 0;
+
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+
+        public List<GBDAC_H_RESPONSE> getGbdac_h()
+        {
+            var responseList = new List<GBDAC_H_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbdac_h";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBDAC_H_RESPONSE();
                                     response.gbdaccage = dt.Rows[i]["gbdaccage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbdaccage"]) : 0;
                                     response.gbdacnomb = Convert.ToString(dt.Rows[i]["gbdacnomb"]);
                                     response.gbdacape1 = Convert.ToString(dt.Rows[i]["gbdacape1"]);

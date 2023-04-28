@@ -19,6 +19,35 @@
 
     }
 
+
+    public class GBCPO_RESPONSE
+    {
+        public Int64 gbcpocage { get; set; }
+        public DateTime gbcpofino { get; set; }
+        public Int64 gbcponmod { get; set; }
+        public Decimal gbcpooper { get; set; }
+        public Int64 gbcpocodb { get; set; }
+        public string gbcpootro { get; set; }
+        public Int64 gbcpobeni { get; set; }
+        public DateTime gbcpofini { get; set; }
+        public string gbcpouser { get; set; }
+        public string gbcpohora { get; set; }
+        public DateTime gbcpofpro { get; set; }
+
+    }
+
+    public class GBCSF_RESPONSE
+    {
+        public Int64 gbcsfdpto { get; set; }
+        public string gbcsfciud { get; set; }
+        public string gbcsfdpt1 { get; set; }
+        public string gbcsfdesc { get; set; }
+        public string gbcsfprov { get; set; }
+        public string gbcsfsecc { get; set; }
+        public string gbcsfcant { get; set; }
+  
+    }
+
     public class GBAGE_RESPONSE
     {
         public Int64 gbagecage { get; set; }
@@ -145,7 +174,85 @@
         public Int64 gbdactdis { get; set; }
     }
 
-    public class GBDBI_RESPONSE
+    public class GBDAC_H_RESPONSE
+    {
+        public Int64 gbdaccage { get; set; }
+        public string gbdacnomb { get; set; }
+        public string gbdacape1 { get; set; }
+        public string gbdacape2 { get; set; }
+        public string gbdacnoco { get; set; }
+        public string gbdaccocl { get; set; }
+        public string gbdacrefp { get; set; }
+        public string gbdacmail { get; set; }
+        public string gbdacciud { get; set; }
+        public string gbdacubid { get; set; }
+        public string gbdacrefd { get; set; }
+        public string gbdacnemp { get; set; }
+        public string gbdacccar { get; set; }
+        public string gbdacnint { get; set; }
+        public string gbdacciuo { get; set; }
+        public string gbdacubio { get; set; }
+        public string gbdacrefo { get; set; }
+        public string gbdacfing { get; set; }
+        public string gbdacrseg { get; set; }
+        public string gbdactres { get; set; }
+        public string gbdacnori { get; set; }
+        public string gbdacfcna { get; set; }
+        public string gbdacflle { get; set; }
+        public string gbdacstat { get; set; }
+        public string gbdacfsta { get; set; }
+        public string gbdacsant { get; set; }
+        public string gbdacfant { get; set; }
+        public string gbdaccnac { get; set; }
+        public string gbdacmens { get; set; }
+        public string gbdactmen { get; set; }
+        public string gbdacneva { get; set; }
+        public string gbdacfeva { get; set; }
+        public string gbdaccony { get; set; }
+        public string gbdacnive { get; set; }
+        public string gbdaccand { get; set; }
+        public string gbdacclfa { get; set; }
+        public string gbdacfcaa { get; set; }
+        public string gbdacfcal { get; set; }
+        public string gbdacfuad { get; set; }
+        public string gbdaccelu { get; set; }
+        public string gbdacclas { get; set; }
+        public string gbdacnom1 { get; set; }
+        public string gbdacnom2 { get; set; }
+        public string gbdacape3 { get; set; }
+        public string gbdactmto { get; set; }
+        public string gbdaccncn { get; set; }
+        public string gbdaccnco { get; set; }
+        public string gbdacpaip { get; set; }
+        public string gbdacrubr { get; set; }
+        public string gbdacsect { get; set; }
+        public string gbdacactv { get; set; }
+        public string gbdacclsc { get; set; }
+        public string gbdactipo { get; set; }
+        public string gbdacpweb { get; set; }
+        public string gbdacobsv { get; set; }
+        public string gbdacrepr { get; set; }
+        public string gbdaccicl { get; set; }
+        public string gbdacambg { get; set; }
+        public string gbdacidip { get; set; }
+        public string gbdacidis { get; set; }
+        public string gbdacciun { get; set; }
+        public string gbdacpeso { get; set; }
+        public string gbdacestt { get; set; }
+        public string gbdacfmat { get; set; }
+        public string gbdacnfam { get; set; }
+        public string gbdaccalp { get; set; }
+        public string gbdaclact { get; set; }
+        public string gbdacfiac { get; set; }
+        public string gbdactaac { get; set; }
+        public string gbdactmac { get; set; }
+        public string gbdactdac { get; set; }
+        public string gbdacidac { get; set; }
+        public string gbdacusrl { get; set; }
+        public string gbdacdate { get; set; }
+        public string gbdacevto { get; set; }
+    }
+        public class GBDBI_RESPONSE
     {
         public Int64 gbdbicage { get; set; }
         public string gbdbifech { get; set; }

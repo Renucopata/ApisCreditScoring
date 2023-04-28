@@ -179,6 +179,96 @@ namespace ApisCreditScoring.Handlers
         }
 
 
+        public PROCEDURE_RESULT_RESPONSE insertGbcpo(List<GBCPO_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBCPO_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBCPO", conexion);
+
+                        cmd.Parameters.AddWithValue("gbcpocage", register.gbcpocage);
+                        cmd.Parameters.AddWithValue("gbcpofino", register.gbcpofino);
+                        cmd.Parameters.AddWithValue("gbcponmod", register.gbcponmod);
+                        cmd.Parameters.AddWithValue("gbcpooper", register.gbcpooper);
+                        cmd.Parameters.AddWithValue("gbcpocodb", register.gbcpocodb);
+                        cmd.Parameters.AddWithValue("gbcpootro", register.gbcpootro);
+                        cmd.Parameters.AddWithValue("gbcpobeni", register.gbcpobeni);
+                        cmd.Parameters.AddWithValue("gbcpofini", register.gbcpofini);
+                        cmd.Parameters.AddWithValue("gbcpouser", register.gbcpouser);
+                        cmd.Parameters.AddWithValue("gbcpohora", register.gbcpohora);
+                        cmd.Parameters.AddWithValue("gbcpofpro", register.gbcpofpro);
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+        public PROCEDURE_RESULT_RESPONSE insertGbcsf(List<GBCSF_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBCSF_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBCSF", conexion);
+
+                        cmd.Parameters.AddWithValue("gbcsfdpto", register.gbcsfdpto);
+                        cmd.Parameters.AddWithValue("gbcsfciud", register.gbcsfciud);
+                        cmd.Parameters.AddWithValue("gbcsfdpt1", register.gbcsfdpt1);
+                        cmd.Parameters.AddWithValue("gbcsfdesc", register.gbcsfdesc);
+                        cmd.Parameters.AddWithValue("gbcsfprov", register.gbcsfprov);
+                        cmd.Parameters.AddWithValue("gbcsfsecc", register.gbcsfsecc);
+                        cmd.Parameters.AddWithValue("gbcsfcant", register.gbcsfcant);
+        
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
         public PROCEDURE_RESULT_RESPONSE insertGbdac(List<GBDAC_RESPONSE> rows)
         {
             var response = new PROCEDURE_RESULT_RESPONSE();

@@ -19,7 +19,7 @@ namespace ApisCreditScoring.Controllers
 
 
         [HttpGet]
-        [Route("GetActividadesCli")] //no hay data en la tabla
+        [Route("GetActividadesCli")] //sin acceso
         public IActionResult getgbaec()
         {
             DataRetriever retriever = new DataRetriever();
@@ -42,13 +42,33 @@ namespace ApisCreditScoring.Controllers
 
 
         [HttpGet]
-        [Route("GetBeneficiarios")] //no hay data en la tabla
+        [Route("GetBeneficiarios")] //sin acceso
         public IActionResult getgbben()
         {
             DataRetriever retriever = new DataRetriever();
             ModelState.Clear();
             DataInsertor insertor = new DataInsertor();
             return Ok(insertor.insertGbben(retriever.getGbben()));
+        }
+
+        [HttpGet]
+        [Route("GetBeneficiosCPOP")] //sin acceso
+        public IActionResult getgbcpo()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbcpo(retriever.getGbcpo()));
+        }
+
+        [HttpGet]
+        [Route("GetEquivalenciasUbi")] //sin acceso
+        public IActionResult getgbcsf()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbcsf(retriever.getGbcsf()));
         }
 
         [HttpGet]
@@ -59,6 +79,16 @@ namespace ApisCreditScoring.Controllers
             ModelState.Clear();
             DataInsertor insertor = new DataInsertor();
             return Ok(insertor.insertGbdac(retriever.getgbdac()));
+        }
+
+        [HttpGet]
+        [Route("GetHistoricoDatosAdicionalesCli")] //Terminada y probada
+        public IActionResult getgbdac_h()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbdac_h(retriever.getGbdac_h()));
         }
 
         [HttpGet]
