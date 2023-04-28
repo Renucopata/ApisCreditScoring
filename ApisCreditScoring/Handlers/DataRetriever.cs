@@ -12,7 +12,7 @@ namespace ApisCreditScoring.Handlers
     public class DataRetriever
     {
 
-        public List<GBAEC_RESPONSE> getGabec()
+        public List<GBAEC_RESPONSE> getGbaec()
         {
             var responseList = new List<GBAEC_RESPONSE>();
             var cn = new StageConnection();
@@ -138,6 +138,66 @@ namespace ApisCreditScoring.Handlers
                                     response.gbagefmrc = Convert.ToString(dt.Rows[i]["gbagefmrc"]);
                                     response.gbagemrcb = dt.Rows[i]["gbagemrcb"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbagemrcb"]) : 0;
                                     response.gbagecomp = Convert.ToString(dt.Rows[i]["gbagecomp"]);
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+
+        public List<GBBEN_RESPONSE> getGbben()
+        {
+            var responseList = new List<GBBEN_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM gbaec";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBBEN_RESPONSE();
+                                    response.gbbencage = dt.Rows[i]["gbbencage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbbencage"]) : 0;
+                                    response.gbbentseg = dt.Rows[i]["gbbentseg"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbbentseg"]) : 0;
+                                    response.gbbenpate = Convert.ToString(dt.Rows[i]["gbbenpate"]);
+                                    response.gbbenmate = Convert.ToString(dt.Rows[i]["gbbenmate"]);
+                                    response.gbbennom1 = Convert.ToString(dt.Rows[i]["gbbennom1"]);
+                                    response.gbbennom2 = Convert.ToString(dt.Rows[i]["gbbennom2"]);
+                                    response.gbbenndid = Convert.ToString(dt.Rows[i]["gbbenndid"]);
+                                    response.gbbenpare = dt.Rows[i]["gbbenpare"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbbenpare"]) : 0;
+                                    response.gbbenpart = dt.Rows[i]["gbbenpart"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbbenpart"]) : 0; ;
+
+                              
+
 
                                     responseList.Add(response);
                                 }

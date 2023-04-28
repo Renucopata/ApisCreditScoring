@@ -132,6 +132,53 @@ namespace ApisCreditScoring.Handlers
             return response;
         }
 
+
+        public PROCEDURE_RESULT_RESPONSE insertGbben(List<GBBEN_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBBEN_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBBEN", conexion);
+
+                        cmd.Parameters.AddWithValue("gbbencage", register.gbbencage);
+                        cmd.Parameters.AddWithValue("gbbentseg", register.gbbentseg);
+                        cmd.Parameters.AddWithValue("gbbenpate", register.gbbenpate);
+                        cmd.Parameters.AddWithValue("gbbenmate", register.gbbenmate);
+                        cmd.Parameters.AddWithValue("gbbennom1", register.gbbennom1);
+                        cmd.Parameters.AddWithValue("gbbennom2", register.gbbennom2);
+                        cmd.Parameters.AddWithValue("gbbenndid", register.gbbenndid);
+                        cmd.Parameters.AddWithValue("gbbenpare", register.gbbenpare);
+                        cmd.Parameters.AddWithValue("gbbenpart", register.gbbenpart);
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
         public PROCEDURE_RESULT_RESPONSE insertGbdac(List<GBDAC_RESPONSE> rows)
         {
             var response = new PROCEDURE_RESULT_RESPONSE();

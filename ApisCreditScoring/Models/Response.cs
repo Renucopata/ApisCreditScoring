@@ -4,6 +4,21 @@
     {
     }
 
+    public class GBBEN_RESPONSE
+    {
+        public Int64 gbbencage { get; set; }
+        public Int64 gbbentseg { get; set; }
+        public string gbbenpate { get; set; }
+        public string gbbenmate { get; set; }
+        public string gbbennom1 { get; set; }
+        public string gbbennom2 { get; set; }
+        public string gbbenndid { get; set; }
+        public Int64 gbbenpare { get; set; }
+        public Decimal gbbenpart { get; set; }
+       
+
+    }
+
     public class GBAGE_RESPONSE
     {
         public Int64 gbagecage { get; set; }

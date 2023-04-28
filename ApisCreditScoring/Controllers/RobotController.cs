@@ -25,7 +25,7 @@ namespace ApisCreditScoring.Controllers
             DataRetriever retriever = new DataRetriever();
             ModelState.Clear();
             DataInsertor insertor = new DataInsertor();
-            return Ok(insertor.insertGbaec(retriever.getgbaec()));
+            return Ok(insertor.insertGbaec(retriever.getGbaec()));
         }
 
         [HttpGet] 
@@ -40,7 +40,18 @@ namespace ApisCreditScoring.Controllers
             return Ok(insertor.insertGbage(retriever.getgbage()));
         }
 
-       [HttpGet]
+
+        [HttpGet]
+        [Route("GetBeneficiarios")] //no hay data en la tabla
+        public IActionResult getgbben()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbben(retriever.getGbben()));
+        }
+
+        [HttpGet]
         [Route("GetdatosAdicionalesCli")] //Terminada y probada
         public IActionResult getgbdac()
         {
