@@ -18,6 +18,16 @@ namespace ApisCreditScoring.Controllers
 
 
 
+        [HttpGet]
+        [Route("GetActividadesCli")] //no hay data en la tabla
+        public IActionResult getgbaec()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbaec(retriever.getgbaec()));
+        }
+
         [HttpGet] 
         [Route("GetRegistroClientes")] //Terminada y probada
         public IActionResult getgbage()

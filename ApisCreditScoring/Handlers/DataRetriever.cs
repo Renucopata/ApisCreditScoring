@@ -12,6 +12,67 @@ namespace ApisCreditScoring.Handlers
     public class DataRetriever
     {
 
+        public List<GBAEC_RESPONSE> getGabec()
+        {
+            var responseList = new List<GBAEC_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM gbaec";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBAEC_RESPONSE();
+                                    response.gbaeccage = dt.Rows[i]["gbaeccage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbaeccage"]) : 0;
+                                    response.gbaeccaec = dt.Rows[i]["gbaeccaec"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbaeccaec"]) : 0;
+                                    response.gbaecfreg = Convert.ToDateTime(dt.Rows[i]["gbaecfreg"]);
+                                    response.gbaecdesc = Convert.ToString(dt.Rows[i]["gbaecdesc"]);
+                                    response.gbaecisec = dt.Rows[i]["gbaecisec"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbaecisec"]) : 0;
+                                    response.gbaecmrcb = dt.Rows[i]["gbaecmrcb"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbaecmrcb"]) : 0;;
+                                    response.gbaecmusr = Convert.ToString(dt.Rows[i]["gbaecmusr"]);
+                                    response.gbaecmhor = Convert.ToString(dt.Rows[i]["gbaecmhor"]);
+                                    response.gbaecmfec = Convert.ToDateTime(dt.Rows[i]["gbaecmfec"]);
+                                    response.gbaecusrn = Convert.ToString(dt.Rows[i]["gbaecusrn"]);
+                                    response.gbaechora = Convert.ToString(dt.Rows[i]["gbaechora"]);
+                                    response.gbaecfpro = Convert.ToDateTime(dt.Rows[i]["gbaecfpro"]);
+                                
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+
 
         public List<GBAGE_RESPONSE> getgbage()
         {

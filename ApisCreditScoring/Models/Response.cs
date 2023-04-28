@@ -195,6 +195,23 @@
         public DateTime prdeufpro { get; set; }
     }
 
+    public class GBAEC_RESPONSE
+    {
+
+        public Int64 gbaeccage { get; set; }
+        public Int64 gbaeccaec { get; set; }
+        public DateTime gbaecfreg { get; set; }
+        public string gbaecdesc { get; set; }
+        public Int64 gbaecisec { get; set; }
+        public Int64 gbaecmrcb { get; set; }
+        public string gbaecmusr { get; set; }
+        public string gbaecmhor { get; set; }
+        public DateTime gbaecmfec { get; set; }
+        public string gbaecusrn { get; set; }
+        public string gbaechora { get; set; }
+        public DateTime gbaecfpro { get; set; }
+
+    }
 
     public class PROCEDURE_RESULT_RESPONSE
     {

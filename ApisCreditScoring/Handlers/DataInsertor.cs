@@ -7,6 +7,55 @@ namespace ApisCreditScoring.Handlers
     public class DataInsertor
     {
 
+        public PROCEDURE_RESULT_RESPONSE insertGbaec(List<GBAEC_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBAEC_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBAEC", conexion);
+
+                        cmd.Parameters.AddWithValue("gbaeccage", register.gbaeccage);
+                        cmd.Parameters.AddWithValue("gbaeccaec", register.gbaeccaec);
+                        cmd.Parameters.AddWithValue("gbaecfreg", register.gbaecfreg);
+                        cmd.Parameters.AddWithValue("gbaecdesc", register.gbaecdesc);
+                        cmd.Parameters.AddWithValue("gbaecisec", register.gbaecisec);
+                        cmd.Parameters.AddWithValue("gbaecmrcb", register.gbaecmrcb);
+                        cmd.Parameters.AddWithValue("gbaecmusr", register.gbaecmusr);
+                        cmd.Parameters.AddWithValue("gbaecmhor", register.gbaecmhor);
+                        cmd.Parameters.AddWithValue("gbaecmfec", register.gbaecmfec);
+                        cmd.Parameters.AddWithValue("gbaecusrn", register.gbaecusrn);
+                        cmd.Parameters.AddWithValue("gbaechora", register.gbaechora);
+                        cmd.Parameters.AddWithValue("gbaecfpro", register.gbaecfpro);
+                       
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+
         public PROCEDURE_RESULT_RESPONSE insertGbage(List<GBAGE_RESPONSE> rows)
         {
             var response = new PROCEDURE_RESULT_RESPONSE();
