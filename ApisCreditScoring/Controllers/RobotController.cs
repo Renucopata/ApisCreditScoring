@@ -72,7 +72,7 @@ namespace ApisCreditScoring.Controllers
         }
 
         [HttpGet]
-        [Route("GetdatosAdicionalesCli")] //Terminada y probada
+        [Route("GetdatosAdicionalesCli")] //Terminada
         public IActionResult getgbdac()
         {
             DataRetriever retriever = new DataRetriever();
@@ -82,7 +82,7 @@ namespace ApisCreditScoring.Controllers
         }
 
         [HttpGet]
-        [Route("GetHistoricoDatosAdicionalesCli")] //Terminada y probada
+        [Route("GetHistoricoDatosAdicionalesCli")] //Terminada
         public IActionResult getgbdac_h()
         {
             DataRetriever retriever = new DataRetriever();
@@ -102,6 +102,65 @@ namespace ApisCreditScoring.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GetDeudores")] //tabla sin acceso
+        public IActionResult getgbdeu()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbdeu(retriever.getGbdeu()));
+        }
+
+        [HttpGet]
+        [Route("GetDeudasOtrasInst")] //tabla sin acceso
+        public IActionResult getgbdgo()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbdgo(retriever.getGbdgo()));
+        }
+
+        [HttpGet]
+        [Route("GetDatosIndicesPPI")] //tabla sin acceso
+        public IActionResult getgbdic()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbdic(retriever.getGbdic()));
+        }
+
+        [HttpGet]
+        [Route("GetHistoricoDocCliente")] //tabla sin acceso
+        public IActionResult getgbdoc_h()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbdoc_h(retriever.getGbdoc_h()));
+        }
+
+        [HttpGet]
+        [Route("GetCorreosElecAgenda")] //tabla sin acceso
+        public IActionResult getgbema()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbema(retriever.getGbema()));
+        }
+
+        [HttpGet]
+        [Route("GetHistoricoCalificacion")] //tabla sin acceso
+        public IActionResult getgbhca()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbhca(retriever.getGbhca()));
+        }
 
 
 
@@ -121,7 +180,7 @@ namespace ApisCreditScoring.Controllers
         }
 
         [HttpGet]
-        [Route("GetDeudores")] //Terminada y probada
+        [Route("GetDeudoresPR")] //Terminada y probada
         public IActionResult getprdeu()
         {
             DataRetriever retriever = new DataRetriever();

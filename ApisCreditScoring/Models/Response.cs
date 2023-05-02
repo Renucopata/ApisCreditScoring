@@ -184,70 +184,70 @@
         public string gbdaccocl { get; set; }
         public string gbdacrefp { get; set; }
         public string gbdacmail { get; set; }
-        public string gbdacciud { get; set; }
+        public Int64 gbdacciud { get; set; }
         public string gbdacubid { get; set; }
         public string gbdacrefd { get; set; }
         public string gbdacnemp { get; set; }
-        public string gbdacccar { get; set; }
+        public Int64 gbdacccar { get; set; }
         public string gbdacnint { get; set; }
-        public string gbdacciuo { get; set; }
+        public Int64 gbdacciuo { get; set; }
         public string gbdacubio { get; set; }
         public string gbdacrefo { get; set; }
-        public string gbdacfing { get; set; }
-        public string gbdacrseg { get; set; }
-        public string gbdactres { get; set; }
+        public DateTime gbdacfing { get; set; }
+        public Int64 gbdacrseg { get; set; }
+        public Int64 gbdactres { get; set; }
         public string gbdacnori { get; set; }
-        public string gbdacfcna { get; set; }
-        public string gbdacflle { get; set; }
-        public string gbdacstat { get; set; }
-        public string gbdacfsta { get; set; }
-        public string gbdacsant { get; set; }
-        public string gbdacfant { get; set; }
-        public string gbdaccnac { get; set; }
+        public DateTime gbdacfcna { get; set; }
+        public Int64 gbdacflle { get; set; }
+        public Int64 gbdacstat { get; set; }
+        public DateTime gbdacfsta { get; set; }
+        public Int64 gbdacsant { get; set; }
+        public DateTime gbdacfant { get; set; }
+        public Int64 gbdaccnac { get; set; }
         public string gbdacmens { get; set; }
         public string gbdactmen { get; set; }
         public string gbdacneva { get; set; }
-        public string gbdacfeva { get; set; }
-        public string gbdaccony { get; set; }
-        public string gbdacnive { get; set; }
-        public string gbdaccand { get; set; }
+        public DateTime gbdacfeva { get; set; }
+        public Int64 gbdaccony { get; set; }
+        public Int64 gbdacnive { get; set; }
+        public Int64 gbdaccand { get; set; }
         public string gbdacclfa { get; set; }
-        public string gbdacfcaa { get; set; }
-        public string gbdacfcal { get; set; }
-        public string gbdacfuad { get; set; }
+        public DateTime gbdacfcaa { get; set; }
+        public DateTime gbdacfcal { get; set; }
+        public DateTime gbdacfuad { get; set; }
         public string gbdaccelu { get; set; }
         public string gbdacclas { get; set; }
         public string gbdacnom1 { get; set; }
         public string gbdacnom2 { get; set; }
         public string gbdacape3 { get; set; }
         public string gbdactmto { get; set; }
-        public string gbdaccncn { get; set; }
-        public string gbdaccnco { get; set; }
-        public string gbdacpaip { get; set; }
-        public string gbdacrubr { get; set; }
-        public string gbdacsect { get; set; }
-        public string gbdacactv { get; set; }
-        public string gbdacclsc { get; set; }
-        public string gbdactipo { get; set; }
+        public Int64 gbdaccncn { get; set; }
+        public Int64 gbdaccnco { get; set; }
+        public Int64 gbdacpaip { get; set; }
+        public Int64 gbdacrubr { get; set; }
+        public Int64 gbdacsect { get; set; }
+        public Int64 gbdacactv { get; set; }
+        public Int64 gbdacclsc { get; set; }
+        public Int64 gbdactipo { get; set; }
         public string gbdacpweb { get; set; }
         public string gbdacobsv { get; set; }
         public string gbdacrepr { get; set; }
-        public string gbdaccicl { get; set; }
-        public string gbdacambg { get; set; }
-        public string gbdacidip { get; set; }
-        public string gbdacidis { get; set; }
-        public string gbdacciun { get; set; }
-        public string gbdacpeso { get; set; }
-        public string gbdacestt { get; set; }
-        public string gbdacfmat { get; set; }
-        public string gbdacnfam { get; set; }
-        public string gbdaccalp { get; set; }
-        public string gbdaclact { get; set; }
-        public string gbdacfiac { get; set; }
-        public string gbdactaac { get; set; }
-        public string gbdactmac { get; set; }
-        public string gbdactdac { get; set; }
-        public string gbdacidac { get; set; }
+        public Int64 gbdaccicl { get; set; }
+        public Int64 gbdacambg { get; set; }
+        public Int64 gbdacidip { get; set; }
+        public Int64 gbdacidis { get; set; }
+        public Int64 gbdacciun { get; set; }
+        public float gbdacpeso { get; set; }
+        public float gbdacestt { get; set; }
+        public DateTime gbdacfmat { get; set; }
+        public Int64 gbdacnfam { get; set; }
+        public Int64 gbdaccalp { get; set; }
+        public Int64 gbdaclact { get; set; }
+        public DateTime gbdacfiac { get; set; }
+        public Int64 gbdactaac { get; set; }
+        public Int64 gbdactmac { get; set; }
+        public Int64 gbdactdac { get; set; }
+        public Int64 gbdacidac { get; set; }
         public string gbdacusrl { get; set; }
         public string gbdacdate { get; set; }
         public string gbdacevto { get; set; }
@@ -281,6 +281,162 @@
         public string gbdbihora { get; set; }
         public string gbdbifpro { get; set; }
     }
+
+    public class GBDEU_RESPONSE
+    {
+        public Int64 gbdeucage { get; set; }
+        public Decimal gbdeuimpt { get; set; }
+        public Int64 gbdeucmon { get; set; }
+        public Decimal gbdeutdeu { get; set; }
+        public Decimal gbdeutotd { get; set; }
+        public DateTime gbdeufech { get; set; }
+        public Decimal gbdeugara { get; set; }
+        public Decimal gbdeugarl { get; set; }
+        
+    }
+
+    public class GBDGO_RESPONSE
+    {
+            public Int64 gbdgonsol { get; set; }
+            public Int64 gbdgocage { get; set; }
+            public DateTime gbdgofreg { get; set; }
+            public Int64 gbdgocins { get; set; }
+            public string gbdgonopr { get; set; }
+            public string gbdgocalf { get; set; }
+            public Int64 gbdgodest { get; set; }
+            public Int64 gbdgostat { get; set; }
+            public Int64 gbdgocmon { get; set; }
+            public decimal gbdgocuom { get; set; }
+            public Int64 gbdgoncuo { get; set; }
+            public Int64 gbdgoncup { get; set; }
+            public Int64 gbdgoplzo { get; set; }
+            public decimal gbdgomont { get; set; }
+            public decimal gbdgomdes { get; set; }
+            public Int64 gbdgotdeu { get; set; }
+            public DateTime gbdgofech { get; set; }
+            public Int64 gbdgottas { get; set; }
+            public string gbdgotasa { get; set; } //float on the table
+            public Int64 gbdgotdei { get; set; }
+            public Int64 gbdgotres { get; set; }
+            public string gbdgousrn { get; set; }
+            public string gbdgohora { get; set; }
+            public DateTime gbdgofpro { get; set; }
+        
+    }
+
+    public class GBDIC_RESPONSE
+    {
+        public Int64 gbdiccage { get; set; }
+        public DateTime gbdicfreg { get; set; }
+        public Int64 gbdicidir { get; set; }
+        public Int64 gbdiccdep { get; set; }
+        public Int64 gbdiccobr { get; set; }
+        public Int64 gbdiccpro { get; set; }
+        public Int64 gbdicheda { get; set; }
+        public Int64 gbdichned { get; set; }
+        public Int64 gbdichced { get; set; }
+        public decimal gbdictres { get; set; }
+        public Int64 gbdictten { get; set; }
+        public Int64 gbdictviv { get; set; }
+        public string gbdicdviv { get; set; }
+        public Int64 gbdictpar { get; set; }
+        public Int64 gbdictpis { get; set; }
+        public Int64 gbdicttec { get; set; }
+        public string gbdicsagu { get; set; }
+        public string gbdicsluz { get; set; }
+        public string gbdicsalc { get; set; }
+        public string gbdicstlf { get; set; }
+        public string gbdicstce { get; set; }
+        public string gbdicpavi { get; set; }
+        public Int64 gbdiccocu { get; set; }
+        public Int64 gbdicccto { get; set; }
+        public Int64 gbdiccbno { get; set; }
+        public Int64 gbdiccduc { get; set; }
+        public Int64 gbdiccref { get; set; }
+        public Int64 gbdicctel { get; set; }
+        public Int64 gbdiccdvd { get; set; }
+        public Int64 gbdiccmes { get; set; }
+        public Int64 gbdiccveh { get; set; }
+        public string gbdiccoce { get; set; }
+        public Int64 gbdiccmbc { get; set; }
+        public string gbdicrdrr { get; set; }
+        public string gbdicmtrf { get; set; }
+        public string gbdicodoc { get; set; }
+        public string gbdicddoc { get; set; }
+        public string gbdicario { get; set; }
+        public string gbdicamnt { get; set; }
+        public string gbdicabot { get; set; }
+        public string gbdicafab { get; set; }
+        public string gbdicaotr { get; set; }
+        public string gbdicscul { get; set; }
+        public string gbdicuser { get; set; }
+        public string gbdichora { get; set; }
+        public DateTime gbdicfpro { get; set; }
+        public Int64 gbdicnhij { get; set; }
+        public string gbdicsgdo { get; set; }
+        public Int64 gbdicceso { get; set; }
+        public string gbdicglos { get; set; }
+        public string gbdicnmat { get; set; }
+        public decimal gbdicspro { get; set; }
+        public Int64 gbdicunid { get; set; }
+    }
+
+    public class GBDOC_H_RESPONSE
+    {
+        public Int64 gbdoccage { get; set; }
+        public string gbdocndid { get; set; }
+        public DateTime gbdocfvid { get; set; }
+        public string gbdocnruc { get; set; }
+        public DateTime gbdocfvru { get; set; }
+        public DateTime gbdocfreg { get; set; }
+        public Int64 gbdocplaz { get; set; }
+        public Int64 gbdocagen { get; set; }
+        public string gbdocuser { get; set; }
+        public string gbdochora { get; set; }
+        public DateTime gbdocfpro { get; set; }
+        public string gbdocusrl { get; set; }
+        public string gbdocdate { get; set; }
+        public string gbdocevto { get; set; }
+    }
+
+    public class GBEMA_RESPONSE
+    {
+        public Int64 gbemacage { get; set; }
+        public Int64 gbemaitem { get; set; }
+        public string gbemamail { get; set; }
+        public Int64 gbemamrpi { get; set; }
+        public Int64 gbemamrcb { get; set; }
+        public DateTime gbemafmrc { get; set; }
+        public string gbemauser { get; set; }
+        public string gbemahora { get; set; }
+        public DateTime gbemafpro { get; set; }
+    }
+
+    public class GBHCA_RESPONSE
+    {
+        public DateTime gbhcafreg { get; set; }
+        public Int64 gbhcatcal { get; set; }
+        public Int64 gbhcamodn { get; set; }
+        public decimal gbhcanopr { get; set; }
+        public Int64 gbhcacage { get; set; }
+        public string gbhcacalf { get; set; }
+        public string gbhcaclfa { get; set; }
+        public Int64 gbhcappgk { get; set; }
+        public Int64 gbhcacmon { get; set; }
+        public decimal gbhcasald { get; set; }
+        public decimal gbhcaendt { get; set; }
+        public Int64 gbhcastat { get; set; }
+        public DateTime gbhcafpvc { get; set; }
+        public Int64 gbhcadias { get; set; }
+        public string gbhcabipn { get; set; }
+        public string gbhcaglos { get; set; }
+        public string gbhcauser { get; set; }
+        public string gbhcahora { get; set; }
+        public DateTime gbhcafpro { get; set; }
+        public Int64 gbhcacclf { get; set; }
+        public Int64 gbhcacpac { get; set; }
+    }
+
 
     public class PRDIF_RESPONSE
     {

@@ -380,6 +380,118 @@ namespace ApisCreditScoring.Handlers
             return response;
         }
 
+        public PROCEDURE_RESULT_RESPONSE insertGbdac_h(List<GBDAC_H_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBDAC_H_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBDAC_H", conexion);
+
+                        cmd.Parameters.AddWithValue("gbdaccage", register.gbdaccage);
+                        cmd.Parameters.AddWithValue("gbdacnomb", register.gbdacnomb);
+                        cmd.Parameters.AddWithValue("gbdacape1", register.gbdacape1);
+                        cmd.Parameters.AddWithValue("gbdacape2", register.gbdacape2);
+                        cmd.Parameters.AddWithValue("gbdacnoco", register.gbdacnoco);
+                        cmd.Parameters.AddWithValue("gbdaccocl", register.gbdaccocl);
+                        cmd.Parameters.AddWithValue("gbdacrefp", register.gbdacrefp);
+                        cmd.Parameters.AddWithValue("gbdacmail", register.gbdacmail);
+                        cmd.Parameters.AddWithValue("gbdacciud", register.gbdacciud);
+                        cmd.Parameters.AddWithValue("gbdacubid", register.gbdacubid);
+                        cmd.Parameters.AddWithValue("gbdacrefd", register.gbdacrefd);
+                        cmd.Parameters.AddWithValue("gbdacnemp", register.gbdacnemp);
+                        cmd.Parameters.AddWithValue("gbdacccar", register.gbdacccar);
+                        cmd.Parameters.AddWithValue("gbdacnint", register.gbdacnint);
+                        cmd.Parameters.AddWithValue("gbdacciuo", register.gbdacciuo);
+                        cmd.Parameters.AddWithValue("gbdacubio", register.gbdacubio);
+                        cmd.Parameters.AddWithValue("gbdacrefo", register.gbdacrefo);
+                        cmd.Parameters.AddWithValue("gbdacfing", register.gbdacfing);
+                        cmd.Parameters.AddWithValue("gbdacrseg", register.gbdacrseg);
+                        cmd.Parameters.AddWithValue("gbdactres", register.gbdactres);
+                        cmd.Parameters.AddWithValue("gbdacnori", register.gbdacnori);
+                        cmd.Parameters.AddWithValue("gbdacfcna", register.gbdacfcna);
+                        cmd.Parameters.AddWithValue("gbdacflle", register.gbdacflle);
+                        cmd.Parameters.AddWithValue("gbdacstat", register.gbdacstat);
+                        cmd.Parameters.AddWithValue("gbdacfsta", register.gbdacfsta);
+                        cmd.Parameters.AddWithValue("gbdacsant", register.gbdacsant);
+                        cmd.Parameters.AddWithValue("gbdacfant", register.gbdacfant);
+                        cmd.Parameters.AddWithValue("gbdaccnac", register.gbdaccnac);
+                        cmd.Parameters.AddWithValue("gbdacmens", register.gbdacmens);
+                        cmd.Parameters.AddWithValue("gbdactmen", register.gbdactmen);
+                        cmd.Parameters.AddWithValue("gbdacneva", register.gbdacneva);
+                        cmd.Parameters.AddWithValue("gbdacfeva", register.gbdacfeva);
+                        cmd.Parameters.AddWithValue("gbdaccony", register.gbdaccony);
+                        cmd.Parameters.AddWithValue("gbdacnive", register.gbdacnive);
+                        cmd.Parameters.AddWithValue("gbdaccand", register.gbdaccand);
+                        cmd.Parameters.AddWithValue("gbdacclfa", register.gbdacclfa);
+                        cmd.Parameters.AddWithValue("gbdacfcaa", register.gbdacfcaa);
+                        cmd.Parameters.AddWithValue("gbdacfcal", register.gbdacfcal);
+                        cmd.Parameters.AddWithValue("gbdacfuad", register.gbdacfuad);
+                        cmd.Parameters.AddWithValue("gbdaccelu", register.gbdaccelu);
+                        cmd.Parameters.AddWithValue("gbdacclas", register.gbdacclas);
+                        cmd.Parameters.AddWithValue("gbdacnom1", register.gbdacnom1);
+                        cmd.Parameters.AddWithValue("gbdacnom2", register.gbdacnom2);
+                        cmd.Parameters.AddWithValue("gbdacape3", register.gbdacape3);
+                        cmd.Parameters.AddWithValue("gbdactmto", register.gbdactmto);
+                        cmd.Parameters.AddWithValue("gbdaccncn", register.gbdaccncn);
+                        cmd.Parameters.AddWithValue("gbdaccnco", register.gbdaccnco);
+                        cmd.Parameters.AddWithValue("gbdacpaip", register.gbdacpaip);
+                        cmd.Parameters.AddWithValue("gbdacrubr", register.gbdacrubr);
+                        cmd.Parameters.AddWithValue("gbdacsect", register.gbdacsect);
+                        cmd.Parameters.AddWithValue("gbdacactv", register.gbdacactv);
+                        cmd.Parameters.AddWithValue("gbdacclsc", register.gbdacclsc);
+                        cmd.Parameters.AddWithValue("gbdactipo", register.gbdactipo);
+                        cmd.Parameters.AddWithValue("gbdacpweb", register.gbdacpweb);
+                        cmd.Parameters.AddWithValue("gbdacobsv", register.gbdacobsv);
+                        cmd.Parameters.AddWithValue("gbdacrepr", register.gbdacrepr);
+                        cmd.Parameters.AddWithValue("gbdaccicl", register.gbdaccicl);
+                        cmd.Parameters.AddWithValue("gbdacambg", register.gbdacambg);
+                        cmd.Parameters.AddWithValue("gbdacidip", register.gbdacidip);
+                        cmd.Parameters.AddWithValue("gbdacidis", register.gbdacidis);
+                        cmd.Parameters.AddWithValue("gbdacciun", register.gbdacciun);
+                        cmd.Parameters.AddWithValue("gbdacpeso", register.gbdacpeso);
+                        cmd.Parameters.AddWithValue("gbdacestt", register.gbdacestt);
+                        cmd.Parameters.AddWithValue("gbdacfmat", register.gbdacfmat);
+                        cmd.Parameters.AddWithValue("gbdacnfam", register.gbdacnfam);
+                        cmd.Parameters.AddWithValue("gbdaccalp", register.gbdaccalp);
+                        cmd.Parameters.AddWithValue("gbdaclact", register.gbdaclact);
+                        cmd.Parameters.AddWithValue("gbdacfiac", register.gbdacfiac);
+                        cmd.Parameters.AddWithValue("gbdactaac", register.gbdactaac);
+                        cmd.Parameters.AddWithValue("gbdactmac", register.gbdactmac);
+                        cmd.Parameters.AddWithValue("gbdactdac", register.gbdactdac);
+                        cmd.Parameters.AddWithValue("gbdacidac", register.gbdacidac);
+                        cmd.Parameters.AddWithValue("gbdacusrl", register.gbdacusrl);
+                        cmd.Parameters.AddWithValue("gbdacdate", register.gbdacdate);
+                        cmd.Parameters.AddWithValue("gbdacevto", register.gbdacevto);
+
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
 
         public PROCEDURE_RESULT_RESPONSE insertGbdbi(List<GBDBI_RESPONSE> rows)
         {
@@ -445,6 +557,356 @@ namespace ApisCreditScoring.Handlers
             return response;
         }
 
+
+        public PROCEDURE_RESULT_RESPONSE insertGbdeu(List<GBDEU_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBDEU_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBDEU", conexion);
+
+                        cmd.Parameters.AddWithValue("gbdeucage", register.gbdeucage);
+                        cmd.Parameters.AddWithValue("gbdeuimpt", register.gbdeuimpt);
+                        cmd.Parameters.AddWithValue("gbdeucmon", register.gbdeucmon);
+                        cmd.Parameters.AddWithValue("gbdeutdeu", register.gbdeutdeu);
+                        cmd.Parameters.AddWithValue("gbdeutotd", register.gbdeutotd);
+                        cmd.Parameters.AddWithValue("gbdeufech", register.gbdeufech);
+                        cmd.Parameters.AddWithValue("gbdeugara", register.gbdeugara);
+                        cmd.Parameters.AddWithValue("gbdeugarl", register.gbdeugarl);
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+        public PROCEDURE_RESULT_RESPONSE insertGbdgo(List<GBDGO_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBDGO_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBDGO", conexion);
+
+                        cmd.Parameters.AddWithValue("gbdgonsol", register.gbdgonsol);
+                        cmd.Parameters.AddWithValue("gbdgocage", register.gbdgocage);
+                        cmd.Parameters.AddWithValue("gbdgofreg", register.gbdgofreg);
+                        cmd.Parameters.AddWithValue("gbdgocins", register.gbdgocins);
+                        cmd.Parameters.AddWithValue("gbdgonopr", register.gbdgonopr);
+                        cmd.Parameters.AddWithValue("gbdgocalf", register.gbdgocalf);
+                        cmd.Parameters.AddWithValue("gbdgodest", register.gbdgodest);
+                        cmd.Parameters.AddWithValue("gbdgostat", register.gbdgostat);
+                        cmd.Parameters.AddWithValue("gbdgocmon", register.gbdgocmon);
+                        cmd.Parameters.AddWithValue("gbdgocuom", register.gbdgocuom);
+                        cmd.Parameters.AddWithValue("gbdgoncuo", register.gbdgoncuo);
+                        cmd.Parameters.AddWithValue("gbdgoncup", register.gbdgoncup);
+                        cmd.Parameters.AddWithValue("gbdgoplzo", register.gbdgoplzo);
+                        cmd.Parameters.AddWithValue("gbdgomont", register.gbdgomont);
+                        cmd.Parameters.AddWithValue("gbdgomdes", register.gbdgomdes);
+                        cmd.Parameters.AddWithValue("gbdgotdeu", register.gbdgotdeu);
+                        cmd.Parameters.AddWithValue("gbdgofech", register.gbdgofech);
+                        cmd.Parameters.AddWithValue("gbdgottas", register.gbdgottas);
+                        cmd.Parameters.AddWithValue("gbdgotasa", register.gbdgotasa);
+                        cmd.Parameters.AddWithValue("gbdgotdei", register.gbdgotdei);
+                        cmd.Parameters.AddWithValue("gbdgotres", register.gbdgotres);
+                        cmd.Parameters.AddWithValue("gbdgousrn", register.gbdgousrn);
+                        cmd.Parameters.AddWithValue("gbdgohora", register.gbdgohora);
+                        cmd.Parameters.AddWithValue("gbdgofpro", register.gbdgofpro);
+
+
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+        public PROCEDURE_RESULT_RESPONSE insertGbdic(List<GBDIC_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBDIC_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBDIC", conexion);
+
+                        cmd.Parameters.AddWithValue("gbdiccage", register.gbdiccage);
+                        cmd.Parameters.AddWithValue("gbdicfreg", register.gbdicfreg);
+                        cmd.Parameters.AddWithValue("gbdicidir", register.gbdicidir);
+                        cmd.Parameters.AddWithValue("gbdiccdep", register.gbdiccdep);
+                        cmd.Parameters.AddWithValue("gbdiccobr", register.gbdiccobr);
+                        cmd.Parameters.AddWithValue("gbdiccpro", register.gbdiccpro);
+                        cmd.Parameters.AddWithValue("gbdicheda", register.gbdicheda);
+                        cmd.Parameters.AddWithValue("gbdichned", register.gbdichned);
+                        cmd.Parameters.AddWithValue("gbdichced", register.gbdichced);
+                        cmd.Parameters.AddWithValue("gbdictres", register.gbdictres);
+                        cmd.Parameters.AddWithValue("gbdictten", register.gbdictten);
+                        cmd.Parameters.AddWithValue("gbdictviv", register.gbdictviv);
+                        cmd.Parameters.AddWithValue("gbdicdviv", register.gbdicdviv);
+                        cmd.Parameters.AddWithValue("gbdictpar", register.gbdictpar);
+                        cmd.Parameters.AddWithValue("gbdictpis", register.gbdictpis);
+                        cmd.Parameters.AddWithValue("gbdicttec", register.gbdicttec);
+                        cmd.Parameters.AddWithValue("gbdicsagu", register.gbdicsagu);
+                        cmd.Parameters.AddWithValue("gbdicsluz", register.gbdicsluz);
+                        cmd.Parameters.AddWithValue("gbdicsalc", register.gbdicsalc);
+                        cmd.Parameters.AddWithValue("gbdicstlf", register.gbdicstlf);
+                        cmd.Parameters.AddWithValue("gbdicstce", register.gbdicstce);
+                        cmd.Parameters.AddWithValue("gbdicpavi", register.gbdicpavi);
+                        cmd.Parameters.AddWithValue("gbdiccocu", register.gbdiccocu);
+                        cmd.Parameters.AddWithValue("gbdicccto", register.gbdicccto);
+                        cmd.Parameters.AddWithValue("gbdiccbno", register.gbdiccbno);
+                        cmd.Parameters.AddWithValue("gbdiccduc", register.gbdiccduc);
+                        cmd.Parameters.AddWithValue("gbdiccref", register.gbdiccref);
+                        cmd.Parameters.AddWithValue("gbdicctel", register.gbdicctel);
+                        cmd.Parameters.AddWithValue("gbdiccdvd", register.gbdiccdvd);
+                        cmd.Parameters.AddWithValue("gbdiccmes", register.gbdiccmes);
+                        cmd.Parameters.AddWithValue("gbdiccveh", register.gbdiccveh);
+                        cmd.Parameters.AddWithValue("gbdiccoce", register.gbdiccoce);
+                        cmd.Parameters.AddWithValue("gbdiccmbc", register.gbdiccmbc);
+                        cmd.Parameters.AddWithValue("gbdicrdrr", register.gbdicrdrr);
+                        cmd.Parameters.AddWithValue("gbdicmtrf", register.gbdicmtrf);
+                        cmd.Parameters.AddWithValue("gbdicodoc", register.gbdicodoc);
+                        cmd.Parameters.AddWithValue("gbdicddoc", register.gbdicddoc);
+                        cmd.Parameters.AddWithValue("gbdicario", register.gbdicario);
+                        cmd.Parameters.AddWithValue("gbdicamnt", register.gbdicamnt);
+                        cmd.Parameters.AddWithValue("gbdicabot", register.gbdicabot);
+                        cmd.Parameters.AddWithValue("gbdicafab", register.gbdicafab);
+                        cmd.Parameters.AddWithValue("gbdicaotr", register.gbdicaotr);
+                        cmd.Parameters.AddWithValue("gbdicscul", register.gbdicscul);
+                        cmd.Parameters.AddWithValue("gbdicuser", register.gbdicuser);
+                        cmd.Parameters.AddWithValue("gbdichora", register.gbdichora);
+                        cmd.Parameters.AddWithValue("gbdicfpro", register.gbdicfpro);
+                        cmd.Parameters.AddWithValue("gbdicnhij", register.gbdicnhij);
+                        cmd.Parameters.AddWithValue("gbdicsgdo", register.gbdicsgdo);
+                        cmd.Parameters.AddWithValue("gbdicceso", register.gbdicceso);
+                        cmd.Parameters.AddWithValue("gbdicglos", register.gbdicglos);
+                        cmd.Parameters.AddWithValue("gbdicnmat", register.gbdicnmat);
+                        cmd.Parameters.AddWithValue("gbdicspro", register.gbdicspro);
+                        cmd.Parameters.AddWithValue("gbdicunid", register.gbdicunid);
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+        public PROCEDURE_RESULT_RESPONSE insertGbdoc_h(List<GBDOC_H_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBDOC_H_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBDOC_H", conexion);
+
+                        cmd.Parameters.AddWithValue("gbdoccage", register.gbdoccage);
+                        cmd.Parameters.AddWithValue("gbdocndid", register.gbdocndid);
+                        cmd.Parameters.AddWithValue("gbdocfvid", register.gbdocfvid);
+                        cmd.Parameters.AddWithValue("gbdocnruc", register.gbdocnruc);
+                        cmd.Parameters.AddWithValue("gbdocfvru", register.gbdocfvru);
+                        cmd.Parameters.AddWithValue("gbdocfreg", register.gbdocfreg);
+                        cmd.Parameters.AddWithValue("gbdocplaz", register.gbdocplaz);
+                        cmd.Parameters.AddWithValue("gbdocagen", register.gbdocagen);
+                        cmd.Parameters.AddWithValue("gbdocuser", register.gbdocuser);
+                        cmd.Parameters.AddWithValue("gbdochora", register.gbdochora);
+                        cmd.Parameters.AddWithValue("gbdocfpro", register.gbdocfpro);
+                        cmd.Parameters.AddWithValue("gbdocusrl", register.gbdocusrl);
+                        cmd.Parameters.AddWithValue("gbdocdate", register.gbdocdate);
+                        cmd.Parameters.AddWithValue("gbdocevto", register.gbdocevto);
+                        
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+        public PROCEDURE_RESULT_RESPONSE insertGbema(List<GBEMA_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBEMA_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBEMA", conexion);
+
+                        cmd.Parameters.AddWithValue("gbemacage", register.gbemacage);
+                        cmd.Parameters.AddWithValue("gbemaitem", register.gbemaitem);
+                        cmd.Parameters.AddWithValue("gbemamail", register.gbemamail);
+                        cmd.Parameters.AddWithValue("gbemamrpi", register.gbemamrpi);
+                        cmd.Parameters.AddWithValue("gbemamrcb", register.gbemamrcb);
+                        cmd.Parameters.AddWithValue("gbemafmrc", register.gbemafmrc);
+                        cmd.Parameters.AddWithValue("gbemauser", register.gbemauser);
+                        cmd.Parameters.AddWithValue("gbemahora", register.gbemahora);
+                        cmd.Parameters.AddWithValue("gbemafpro", register.gbemafpro);
+                        
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+        public PROCEDURE_RESULT_RESPONSE insertGbhca(List<GBHCA_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBHCA_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBHCA", conexion);
+
+                        cmd.Parameters.AddWithValue("gbhcafreg", register.gbhcafreg);
+                        cmd.Parameters.AddWithValue("gbhcatcal", register.gbhcatcal);
+                        cmd.Parameters.AddWithValue("gbhcamodn", register.gbhcamodn);
+                        cmd.Parameters.AddWithValue("gbhcanopr", register.gbhcanopr);
+                        cmd.Parameters.AddWithValue("gbhcacage", register.gbhcacage);
+                        cmd.Parameters.AddWithValue("gbhcacalf", register.gbhcacalf);
+                        cmd.Parameters.AddWithValue("gbhcaclfa", register.gbhcaclfa);
+                        cmd.Parameters.AddWithValue("gbhcappgk", register.gbhcappgk);
+                        cmd.Parameters.AddWithValue("gbhcacmon", register.gbhcacmon);
+                        cmd.Parameters.AddWithValue("gbhcasald", register.gbhcasald);
+                        cmd.Parameters.AddWithValue("gbhcaendt", register.gbhcaendt);
+                        cmd.Parameters.AddWithValue("gbhcastat", register.gbhcastat);
+                        cmd.Parameters.AddWithValue("gbhcafpvc", register.gbhcafpvc);
+                        cmd.Parameters.AddWithValue("gbhcadias", register.gbhcadias);
+                        cmd.Parameters.AddWithValue("gbhcabipn", register.gbhcabipn);
+                        cmd.Parameters.AddWithValue("gbhcaglos", register.gbhcaglos);
+                        cmd.Parameters.AddWithValue("gbhcauser", register.gbhcauser);
+                        cmd.Parameters.AddWithValue("gbhcahora", register.gbhcahora);
+                        cmd.Parameters.AddWithValue("gbhcafpro", register.gbhcafpro);
+                        cmd.Parameters.AddWithValue("gbhcacclf", register.gbhcacclf);
+                        cmd.Parameters.AddWithValue("gbhcacpac", register.gbhcacpac);
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
 
 
 
