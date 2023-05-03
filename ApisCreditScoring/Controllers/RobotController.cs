@@ -162,10 +162,121 @@ namespace ApisCreditScoring.Controllers
             return Ok(insertor.insertGbhca(retriever.getGbhca()));
         }
 
+        [HttpGet]
+        [Route("GetHistoricoCantPrest")] //tabla sin acceso
+        public IActionResult getgbhpr()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbhpr(retriever.getGbhpr()));
+        }
+
+        [HttpGet]
+        [Route("GetHistoricoSeguroVida")] //tabla sin acceso
+        public IActionResult getgbhsv()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbhsv(retriever.getGbhsv()));
+        }
+
+        [HttpGet]
+        [Route("GetHistoricoTransacciones")] //tabla sin acceso
+        public IActionResult getgbhtr()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbhtr(retriever.getGbhtr()));
+        }
+
+        [HttpGet]
+        [Route("GetProfesionesAgrupacion")] //tabla sin acceso
+        public IActionResult getgbprc()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbprc(retriever.getGbprc()));
+        }
+
+        [HttpGet]
+        [Route("GetProfesiones")] //tabla sin acceso
+        public IActionResult getgbprf()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbprf(retriever.getGbprf()));
+        }
+
+        [HttpGet]
+        [Route("GetTamanoEmpresa")] //tabla sin acceso
+        public IActionResult getgbpte()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertGbpte(retriever.getGbpte()));
+        }
+
+
 
 
         //moduloPrestamosComerciales
 
+
+        [HttpGet]
+        [Route("GetAutorizantes")] //sin acceso a la tabla
+        public IActionResult getpraut()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertPraut(retriever.getPraut()));
+        }
+
+        [HttpGet]
+        [Route("GetCondonacionCapitalCastigado")] //sin acceso a la tabla
+        public IActionResult getprckc()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertPrckc(retriever.getPrckc()));
+        }
+
+        [HttpGet]
+        [Route("GetCuentasCastigoInsolvPrescrip")] //sin acceso a la tabla
+        public IActionResult getprcta()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertPrcta(retriever.getPrcta()));
+        }
+
+        [HttpGet]
+        [Route("GetParametrosControl")] //sin acceso a la tabla
+        public IActionResult getprctl()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertPrctl(retriever.getPrctl()));
+        }
+
+        [HttpGet]
+        [Route("GetHistoricoParametrosControl")] //sin acceso a la tabla
+        public IActionResult getprctl_h()
+        {
+            DataRetriever retriever = new DataRetriever();
+            ModelState.Clear();
+            DataInsertor insertor = new DataInsertor();
+            return Ok(insertor.insertPrctl_h(retriever.getPrctl_h()));
+        }
 
 
 

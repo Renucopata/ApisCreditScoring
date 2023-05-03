@@ -1071,10 +1071,616 @@ namespace ApisCreditScoring.Handlers
             return responseList;
         }
 
+        public List<GBHPR_RESPONSE> getGbhpr()
+        {
+            var responseList = new List<GBHPR_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbhpr";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
 
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBHPR_RESPONSE();
+                                    response.gbhprcage = dt.Rows[i]["gbhprcage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhprcage"]) : 0;
+                                    response.gbhprcpre = dt.Rows[i]["gbhprcpre"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhprcpre"]) : 0;
+                                    response.gbhprcfun = dt.Rows[i]["gbhprcfun"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhprcfun"]) : 0;
+                                    response.gbhprmdes = dt.Rows[i]["gbhprmdes"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhprmdes"]) : 0;
+
+                                    response.gbhprcmon = dt.Rows[i]["gbhprcmon"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhprcmon"]) : 0;
+                                    response.gbhprtasa = Convert.ToString(dt.Rows[i]["gbhprtasa"]);
+
+                                    response.gbhprdmor = dt.Rows[i]["gbhprdmor"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhprdmor"]) : 0;
+                                    response.gbhprcpen = dt.Rows[i]["gbhprcpen"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhprcpen"]) : 0;
+                                    
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+        public List<GBHSV_RESPONSE> getGbhsv()
+        {
+            var responseList = new List<GBHSV_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbhsv";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBHSV_RESPONSE();
+                                    response.gbhsvnmod = dt.Rows[i]["gbhsvnmod"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvnmod"]) : 0;
+                                    response.gbhsvtipo = dt.Rows[i]["gbhsvtipo"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvtipo"]) : 0;
+                                    response.gbhsvnopr = dt.Rows[i]["gbhsvnopr"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhsvnopr"]) : 0;
+                                    response.gbhsvcarg = dt.Rows[i]["gbhsvcarg"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvcarg"]) : 0;
+                                    response.gbhsvcmon = dt.Rows[i]["gbhsvcmon"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvcmon"]) : 0;
+                                    response.gbhsvmont = dt.Rows[i]["gbhsvmont"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhsvmont"]) : 0;
+
+                                    response.gbhsvfech = Convert.ToDateTime(dt.Rows[i]["gbhsvfech"]);
+                                    response.gbhsvfupg = Convert.ToDateTime(dt.Rows[i]["gbhsvfupg"]);
+                                    response.gbhsvfpvc = Convert.ToDateTime(dt.Rows[i]["gbhsvfpvc"]);
+
+                                    response.gbhsvsald = dt.Rows[i]["gbhsvsald"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhsvsald"]) : 0;
+                                    response.gbhsvmrcb = dt.Rows[i]["gbhsvmrcb"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvmrcb"]) : 0;
+                                    response.gbhsvplaz = dt.Rows[i]["gbhsvplaz"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvplaz"]) : 0;
+                                    response.gbhsvagen = dt.Rows[i]["gbhsvagen"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvagen"]) : 0;
+
+
+                                    response.gbhsvuser = Convert.ToString(dt.Rows[i]["gbhsvuser"]);
+                                    response.gbhsvhora = Convert.ToString(dt.Rows[i]["gbhsvhora"]);
+                                    response.gbhsvfpro = Convert.ToDateTime(dt.Rows[i]["gbhsvfpro"]);
+
+                                    response.gbhsvbien = dt.Rows[i]["gbhsvbien"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvbien"]) : 0;
+                                    response.gbhsvcage = dt.Rows[i]["gbhsvcage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvcage"]) : 0;
+                                    response.gbhsvtman = dt.Rows[i]["gbhsvtman"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhsvtman"]) : 0;
+                                    response.gbhsvcalf = dt.Rows[i]["gbhsvcalf"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhsvcalf"]) : 0;
+                                    response.gbhsvclas = Convert.ToString(dt.Rows[i]["gbhsvclas"]);
+                                    response.gbhsvstat = dt.Rows[i]["gbhsvstat"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhsvstat"]) : 0;
+
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+            return responseList;
+        }
+
+        public List<GBHTR_RESPONSE> getGbhtr()
+        {
+            var responseList = new List<GBHTR_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbhtr";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBHTR_RESPONSE();
+                                    response.gbhtrntra = dt.Rows[i]["gbhtrntra"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhtrntra"]) : 0;
+                                    response.gbhtrcage = dt.Rows[i]["gbhtrcage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhtrcage"]) : 0;
+
+                                    response.gbhtrftra = Convert.ToDateTime(dt.Rows[i]["gbhtrftra"]);
+                                    response.gbhtrfdev = Convert.ToDateTime(dt.Rows[i]["gbhtrfdev"]);
+                                    response.gbhtrcmnt = Convert.ToString(dt.Rows[i]["gbhtrcmnt"]);
+                                    response.gbhtrcmnd = Convert.ToString(dt.Rows[i]["gbhtrcmnd"]);
+
+                                    response.gbhtriare = dt.Rows[i]["gbhtriare"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhtriare"]) : 0;
+                                    response.gbhtriret = dt.Rows[i]["gbhtriret"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhtriret"]) : 0;
+                                    response.gbhtrcmon = dt.Rows[i]["gbhtrcmon"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhtrcmon"]) : 0;
+                          
+                                    response.gbhtrcfrt = dt.Rows[i]["gbhtrcfrt"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhtrcfrt"]) : 0;
+                                    response.gbhtrtcfr = dt.Rows[i]["gbhtrtcfr"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhtrtcfr"]) : 0;
+                                    response.gbhtrcfdv = dt.Rows[i]["gbhtrcfdv"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhtrcfdv"]) : 0;
+                                    response.gbhtrtcfd = dt.Rows[i]["gbhtrtcfd"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhtrtcfd"]) : 0;
+                                    response.gbhtrscgs = dt.Rows[i]["gbhtrscgs"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhtrscgs"]) : 0;
+                                    response.gbhtrsret = dt.Rows[i]["gbhtrsret"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["gbhtrsret"]) : 0;
+                    
+                                    response.gbhtruser = Convert.ToString(dt.Rows[i]["gbhtruser"]);
+                                    response.gbhtrhora = Convert.ToString(dt.Rows[i]["gbhtrhora"]);
+                                    response.gbhtrfpro = Convert.ToDateTime(dt.Rows[i]["gbhtrfpro"]);
+
+                                    response.gbhtrusrd = Convert.ToString(dt.Rows[i]["gbhtrusrd"]);
+                                    response.gbhtrhrad = Convert.ToString(dt.Rows[i]["gbhtrhrad"]);
+                                    response.gbhtrfchd = Convert.ToDateTime(dt.Rows[i]["gbhtrfchd"]);
+
+                                    response.gbhtrplaz = dt.Rows[i]["gbhtrplaz"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhtrplaz"]) : 0;
+                                    response.gbhtragen = dt.Rows[i]["gbhtragen"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbhtragen"]) : 0;
+                                    
+                                    responseList.Add(response);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+            return responseList;
+        }
+
+
+        public List<GBPRC_RESPONSE> getGbprc()
+        {
+            var responseList = new List<GBPRC_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbprc";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBPRC_RESPONSE();
+
+                                    response.gbprcgrup = Convert.ToString(dt.Rows[i]["gbprcgrup"]);
+                                    response.gbprcdesc = Convert.ToString(dt.Rows[i]["gbprcdesc"]);
+
+                                    response.gbprcnive = dt.Rows[i]["gbprcnive"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbprcnive"]) : 0;
+                                    response.gbprcprof = dt.Rows[i]["gbprcprof"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbprcprof"]) : 0;
+                                    
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+            return responseList;
+        }
+
+
+        public List<GBPRF_RESPONSE> getGbprf()
+        {
+            var responseList = new List<GBPRF_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbprf";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBPRF_RESPONSE();
+
+                                    response.gbprfprof = dt.Rows[i]["gbprfprof"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbprfprof"]) : 0;
+                                    response.gbprfdesc = Convert.ToString(dt.Rows[i]["gbprfdesc"]);
+                                    response.gbprfabre = Convert.ToString(dt.Rows[i]["gbprfabre"]);
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+            return responseList;
+        }
+
+        public List<GBPTE_RESPONSE> getGbpte()
+        {
+            var responseList = new List<GBPTE_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM general.gbpte";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new GBPTE_RESPONSE();
+
+                                    response.gbptetemp = dt.Rows[i]["gbptetemp"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["gbptetemp"]) : 0;
+                                    response.gbpteinde = Convert.ToString(dt.Rows[i]["gbpteinde"]);
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+            return responseList;
+        }
 
 
         //Prestamos comerciales methods-----
+
+        public List<PRAUT_RESPONSE> getPraut() 
+        {
+            var responseList = new List<PRAUT_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM praut";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new PRAUT_RESPONSE();
+                                    response.prautnaut = dt.Rows[i]["prautnaut"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautnaut"]) : 0;
+                                    response.prautusau = Convert.ToString(dt.Rows[i]["prautusau"]);
+                                    response.prautfeau = Convert.ToDateTime(dt.Rows[i]["prautfeau"]);
+                                    response.prauthoau = Convert.ToString(dt.Rows[i]["prauthoau"]);
+                                    response.prautusso = Convert.ToString(dt.Rows[i]["prautusso"]);
+                                    response.prautagso = Convert.ToString(dt.Rows[i]["prautagso"]);
+
+
+                                    
+                                    response.prautplso = dt.Rows[i]["prautplso"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautplso"]) : 0;
+                                    response.prautfeso = Convert.ToDateTime(dt.Rows[i]["prautfeso"]);
+                                    response.prauthoso = Convert.ToString(dt.Rows[i]["prauthoso"]);
+                                    response.prautttrn = dt.Rows[i]["prdeutres"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautttrn"]) : 0;
+                                    response.prauttipo = dt.Rows[i]["prauttipo"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prauttipo"]) : 0;
+                                    response.prautcage = dt.Rows[i]["prautcage"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautcage"]) : 0;
+                                    response.prautftra = Convert.ToDateTime(dt.Rows[i]["prautftra"]);
+                                    response.prautfvto = Convert.ToDateTime(dt.Rows[i]["prautfvto"]);
+                                    response.prautimpt = dt.Rows[i]["prautimpt"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prautimpt"]) : 0;
+                                    response.prautcmon = dt.Rows[i]["prautcmon"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautcmon"]) : 0;
+                                    response.prautnpre = dt.Rows[i]["prautnpre"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prautnpre"]) : 0;
+                                    response.prautstat = dt.Rows[i]["prautstat"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautstat"]) : 0;
+                                    response.prautfsta = Convert.ToDateTime(dt.Rows[i]["prautfsta"]);
+                                    response.prautmrcb = dt.Rows[i]["prautmrcb"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautmrcb"]) : 0;
+
+                                    response.prautfpro = Convert.ToDateTime(dt.Rows[i]["prautfpro"]);
+
+                                    response.prautplaz = dt.Rows[i]["prautplaz"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautplaz"]) : 0;
+                                    response.prautagen = dt.Rows[i]["prautagen"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautagen"]) : 0;
+                                    response.prauttcta = dt.Rows[i]["prauttcta"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prauttcta"]) : 0;
+                                    response.prautnmod = dt.Rows[i]["prautnmod"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prautnmod"]) : 0;
+
+                                    response.prautglos = Convert.ToString(dt.Rows[i]["prautglos"]);        
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+
+        public List<PRCKC_RESPONSE> getPrckc()
+        {
+            var responseList = new List<PRCKC_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM prckc";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new PRCKC_RESPONSE();
+                                    response.prckctcre = dt.Rows[i]["prckctcre"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prckctcre"]) : 0;
+                                    response.prckccmon = dt.Rows[i]["prckccmon"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prckccmon"]) : 0;
+                                    response.prckckcad = Convert.ToString(dt.Rows[i]["prckckcad"]);
+                                    response.prckckcaa = Convert.ToString(dt.Rows[i]["prckckcaa"]);
+                                   
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+            return responseList;
+        }
+
+        public List<PRCTA_RESPONSE> getPrcta()
+        {
+            var responseList = new List<PRCTA_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM praut";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new PRCTA_RESPONSE();
+                                    response.prctacdki = Convert.ToString(dt.Rows[i]["prctacdki"]);
+                                    response.prctaadki = dt.Rows[i]["prctaadki"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctaadki"]) : 0;
+                                    response.prctacaki = Convert.ToString(dt.Rows[i]["prctacaki"]);
+                                    response.prctaaaki = dt.Rows[i]["prctaaaki"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctaaaki"]) : 0;
+                                    response.prctacdkp = Convert.ToString(dt.Rows[i]["prctacdkp"]);
+                                    response.prctaadkp = dt.Rows[i]["prctaadkp"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctaadkp"]) : 0;
+                                    response.prctacakp = Convert.ToString(dt.Rows[i]["prctacakp"]);
+                                    response.prctaaakp = dt.Rows[i]["prctaaakp"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctaaakp"]) : 0;
+                                    response.prctaccar = Convert.ToString(dt.Rows[i]["prctaccar"]);
+                                   
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
+
+
+        public List<PRCTL_RESPONSE> getPrctl()
+        {
+            var responseList = new List<PRCTL_RESPONSE>();
+            var cn = new StageConnection();
+            using (var conexion = new SqlConnection(cn.get_cadConexion()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT TOP 20 * FROM prctl";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var response = new PRCTL_RESPONSE();
+                                    response.prctlndoc = dt.Rows[i]["prctlndoc"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlndoc"]) : 0;
+                                    response.prctlgest = dt.Rows[i]["prctlgest"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlgest"]) : 0;
+                                    response.prctlnser = dt.Rows[i]["prctlnser"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlnser"]) : 0;
+                                    response.prctlprco = dt.Rows[i]["prctlprco"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlprco"]) : 0;
+
+                          
+                                    response.prctlcdpc = Convert.ToString(dt.Rows[i]["prctlcdpc"]);
+                                    response.prctlcadc = Convert.ToString(dt.Rows[i]["prctlcadc"]);
+                                    response.prctlcdfc = Convert.ToString(dt.Rows[i]["prctlcdfc"]);
+
+                                    response.prctlfcie = Convert.ToDateTime(dt.Rows[i]["prctlfcie"]);
+                                    response.prctlfcia = Convert.ToDateTime(dt.Rows[i]["prctlfcia"]);
+                                    response.prctlfulb = Convert.ToDateTime(dt.Rows[i]["prctlfulb"]);
+                                    response.prctlfalb = Convert.ToDateTime(dt.Rows[i]["prctlfalb"]);
+
+                                    response.prctlcgmn = dt.Rows[i]["prctlcgmn"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlcgmn"]) : 0;
+                                    response.prctlcgme = dt.Rows[i]["prctlcgme"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlcgme"]) : 0;
+                                    response.prctlcgfv = dt.Rows[i]["prctlcgfv"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlcgfv"]) : 0;
+
+                                    response.prctlfchv = Convert.ToString(dt.Rows[i]["prctlfchv"]);
+                                    response.prctlrepr = Convert.ToString(dt.Rows[i]["prctlrepr"]);
+                                    response.prctlcpen = Convert.ToString(dt.Rows[i]["prctlcpen"]);
+                                    response.prctlfcor = Convert.ToDateTime(dt.Rows[i]["prctlfcor"]);
+
+                                    response.prctldfdp = dt.Rows[i]["prctldfdp"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctldfdp"]) : 0;
+                                    response.prctlfccg = Convert.ToDateTime(dt.Rows[i]["prctlfccg"]);
+                                    response.prctlccvg = Convert.ToString(dt.Rows[i]["prctlccvg"]);
+                                    response.prctlacvg = dt.Rows[i]["prctlacvg"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlacvg"]) : 0;
+                                    response.prctlccvn = Convert.ToString(dt.Rows[i]["prctlccvn"]);
+                                    response.prctlacvn = dt.Rows[i]["prctlacvn"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlacvn"]) : 0;
+                                    response.prctlccej = Convert.ToString(dt.Rows[i]["prctlccej"]);
+                                    response.prctlacej = dt.Rows[i]["prctlacej"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlacej"]) : 0;
+                                    response.prctlcrvg = Convert.ToString(dt.Rows[i]["prctlcrvg"]);
+                                    response.prctlarvg = dt.Rows[i]["prctlarvg"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlarvg"]) : 0;
+                                    response.prctlcrvn = Convert.ToString(dt.Rows[i]["prctlcrvn"]);
+                                    response.prctlarvn = dt.Rows[i]["prctlarvn"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlarvn"]) : 0;
+                                    response.prctlcrej = Convert.ToString(dt.Rows[i]["prctlcrej"]);
+                                    response.prctlarej = dt.Rows[i]["prctlarej"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlarej"]) : 0;
+                                    response.prctldmor = dt.Rows[i]["prctldmor"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctldmor"]) : 0;
+                                    response.prctlcmcr = dt.Rows[i]["prctlcmcr"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlcmcr"]) : 0;
+                                    response.prctlpacr = dt.Rows[i]["prctlpacr"] != System.DBNull.Value ? Convert.ToDecimal(dt.Rows[i]["prctlpacr"]) : 0;
+                                    response.prctldmmr = dt.Rows[i]["prctldmmr"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctldmmr"]) : 0;
+                                    response.prctlnmxr = dt.Rows[i]["prctlnmxr"] != System.DBNull.Value ? Convert.ToInt64(dt.Rows[i]["prctlnmxr"]) : 0;
+
+                                    responseList.Add(response);
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+
+
+
+            return responseList;
+        }
 
         public List<PRDEU_RESPONSE> getPrdeu()  //Hacer modelo prdeu
         {
@@ -1123,8 +1729,6 @@ namespace ApisCreditScoring.Handlers
                 }
 
             }
-
-
 
             return responseList;
         }

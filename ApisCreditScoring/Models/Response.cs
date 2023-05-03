@@ -437,6 +437,234 @@
         public Int64 gbhcacpac { get; set; }
     }
 
+    public class GBHPR_RESPONSE
+    {
+        public Int64 gbhprcage { get; set; }
+        public Int64 gbhprcpre { get; set; }
+        public Int64 gbhprcfun { get; set; }
+        public decimal gbhprmdes { get; set; }
+        public Int64 gbhprcmon { get; set; }
+        public string gbhprtasa { get; set; }//float en la tabla
+        public Int64 gbhprdmor { get; set; }
+        public decimal gbhprcpen { get; set; }
+    }
+
+    public class GBHSV_RESPONSE{
+        public Int64 gbhsvnmod { get; set; }
+        public Int64 gbhsvtipo { get; set; }
+        public decimal gbhsvnopr { get; set; }
+        public Int64 gbhsvcarg { get; set; }
+        public Int64 gbhsvcmon { get; set; }
+        public decimal gbhsvmont { get; set; }
+        public DateTime gbhsvfech { get; set; }
+        public DateTime gbhsvfupg { get; set; }
+        public DateTime gbhsvfpvc { get; set; }
+        public decimal gbhsvsald { get; set; }
+        public Int64 gbhsvmrcb { get; set; }
+        public Int64 gbhsvplaz { get; set; }
+        public Int64 gbhsvagen { get; set; }
+        public string gbhsvuser { get; set; }
+        public string gbhsvhora { get; set; }
+        public DateTime gbhsvfpro { get; set; }
+        public Int64 gbhsvbien { get; set; }
+        public Int64 gbhsvcage { get; set; }
+        public Int64 gbhsvtman { get; set; }
+        public decimal gbhsvcalf { get; set; }
+        public string gbhsvclas { get; set; }
+        public decimal gbhsvstat { get; set; }
+
+    }
+
+    public class GBHTR_RESPONSE
+    {
+        public Int64 gbhtrntra { get; set; }
+        public Int64 gbhtrcage { get; set; }
+        public DateTime gbhtrftra { get; set; }
+        public DateTime gbhtrfdev { get; set; }
+        public string gbhtrcmnt { get; set; }
+        public string gbhtrcmnd { get; set; }
+        public decimal gbhtriare { get; set; }
+        public decimal gbhtriret { get; set; }
+        public Int64 gbhtrcmon { get; set; }
+        public decimal gbhtrcfrt { get; set; }
+        public Int64 gbhtrtcfr { get; set; }
+        public decimal gbhtrcfdv { get; set; }
+        public Int64 gbhtrtcfd { get; set; }
+        public decimal gbhtrscgs { get; set; }
+        public decimal gbhtrsret { get; set; }
+        public string gbhtruser { get; set; }
+        public string gbhtrhora { get; set; }
+        public DateTime gbhtrfpro { get; set; }
+        public string gbhtrusrd { get; set; }
+        public string gbhtrhrad { get; set; }
+        public DateTime gbhtrfchd { get; set; }
+        public Int64 gbhtrplaz { get; set; }
+        public Int64 gbhtragen { get; set; }
+    }
+
+    public class GBPRC_RESPONSE
+    {
+        public string gbprcgrup { get; set; }
+        public string gbprcdesc { get; set; }
+        public Int64 gbprcnive { get; set; }
+        public Int64 gbprcprof { get; set; }
+    }
+
+    public class GBPRF_RESPONSE
+    {
+        
+ 
+        public Int64 gbprfprof { get; set; }
+        public string gbprfdesc { get; set; }
+        public string gbprfabre { get; set; }
+
+    }
+
+    public class GBPTE_RESPONSE
+    {
+        public Int64 gbptetemp { get; set; }
+        public string gbpteinde { get; set; } //float en la tabla
+    }
+
+
+
+    public class PRAUT_RESPONSE
+    {
+        public Int64 prautnaut { get; set; }
+        public string prautusau { get; set; }
+        public DateTime prautfeau { get; set; }
+        public string prauthoau { get; set; }
+        public string prautusso { get; set; }
+        public string prautagso { get; set; }
+        public Int64 prautplso { get; set; }
+        public DateTime prautfeso { get; set; }
+        public string prauthoso { get; set; }
+        public Int64 prautttrn { get; set; }
+        public Int64 prauttipo { get; set; }
+        public Int64 prautcage { get; set; }
+        public DateTime prautftra { get; set; }
+        public DateTime prautfvto { get; set; }
+        public decimal prautimpt { get; set; }
+        public Int64 prautcmon { get; set; }
+        public decimal prautnpre { get; set; }
+        public Int64 prautstat { get; set; }
+        public DateTime prautfsta { get; set; }
+        public Int64 prautmrcb { get; set; }
+        public DateTime prautfpro { get; set; }
+        public Int64 prautplaz { get; set; }
+        public Int64 prautagen { get; set; }
+        public Int64 prauttcta { get; set; }
+        public Int64 prautnmod { get; set; }
+        public string prautglos { get; set; }
+    }
+
+    public class PRCKC_RESPONSE
+    {
+        public Int64 prckctcre { get; set; }
+        public Int64 prckccmon { get; set; }
+        public string prckckcad { get; set; }
+        public string prckckcaa { get; set; }
+    }
+
+    public class PRCTA_RESPONSE
+    {
+        public string prctacdki { get; set; }
+        public Int64 prctaadki { get; set; }
+        public string prctacaki { get; set; }
+        public Int64 prctaaaki { get; set; }
+        public string prctacdkp { get; set; }
+        public Int64 prctaadkp { get; set; }
+        public string prctacakp { get; set; }
+        public Int64 prctaaakp { get; set; }
+        public string prctaccar { get; set; }
+    }
+
+    public class PRCTL_RESPONSE
+    {
+        public Int64 prctlndoc { get; set; }
+        public Int64 prctlgest { get; set; }
+        public Int64 prctlnser { get; set; }
+        public Int64 prctlprco { get; set; }
+        public string prctlcdpc { get; set; }
+        public string prctlcadc { get; set; }
+        public string prctlcdfc { get; set; }
+        public DateTime prctlfcie { get; set; }
+        public DateTime prctlfcia { get; set; }
+        public DateTime prctlfulb { get; set; }
+        public DateTime prctlfalb { get; set; }
+        public Int64 prctlcgmn { get; set; }
+        public Int64 prctlcgme { get; set; }
+        public Int64 prctlcgfv { get; set; }
+        public string prctlfchv { get; set; }
+        public string prctlrepr { get; set; }
+        public string prctlcpen { get; set; }
+        public DateTime prctlfcor { get; set; }
+        public Int64 prctldfdp { get; set; }
+        public DateTime prctlfccg { get; set; }
+        public string prctlccvg { get; set; }
+        public Int64 prctlacvg { get; set; }
+        public string prctlccvn { get; set; }
+        public Int64 prctlacvn { get; set; }
+        public string prctlccej { get; set; }
+        public Int64 prctlacej { get; set; }
+        public string prctlcrvg { get; set; }
+        public Int64 prctlarvg { get; set; }
+        public string prctlcrvn { get; set; }
+        public Int64 prctlarvn { get; set; }
+        public string prctlcrej { get; set; }
+        public Int64 prctlarej { get; set; }
+        public Int64 prctldmor { get; set; }
+        public Int64 prctlcmcr { get; set; }
+        public decimal prctlpacr { get; set; }
+        public Int64 prctldmmr { get; set; }
+        public Int64 prctlnmxr { get; set; }
+    }
+
+    public class PRCTL_H_RESPONSE
+    {
+        public Int64 prctlndoc { get; set; }
+        public Int64 prctlgest { get; set; }
+        public Int64 prctlnser { get; set; }
+        public Int64 prctlprco { get; set; }
+        public string prctlcdpc { get; set; }
+        public string prctlcadc { get; set; }
+        public string prctlcdfc { get; set; }
+        public DateTime prctlfcie { get; set; }
+        public DateTime prctlfcia { get; set; }
+        public DateTime prctlfulb { get; set; }
+        public DateTime prctlfalb { get; set; }
+        public Int64 prctlcgmn { get; set; }
+        public Int64 prctlcgme { get; set; }
+        public Int64 prctlcgfv { get; set; }
+        public string prctlfchv { get; set; }
+        public string prctlrepr { get; set; }
+        public string prctlcpen { get; set; }
+        public DateTime prctlfcor { get; set; }
+        public Int64 prctldfdp { get; set; }
+        public DateTime prctlfccg { get; set; }
+        public string prctlccvg { get; set; }
+        public Int64 prctlacvg { get; set; }
+        public string prctlccvn { get; set; }
+        public Int64 prctlacvn { get; set; }
+        public string prctlccej { get; set; }
+        public Int64 prctlacej { get; set; }
+        public string prctlcrvg { get; set; }
+        public Int64 prctlarvg { get; set; }
+        public string prctlcrvn { get; set; }
+        public Int64 prctlarvn { get; set; }
+        public string prctlcrej { get; set; }
+        public Int64 prctlarej { get; set; }
+        public Int64 prctldmor { get; set; }
+        public Int64 prctlcmcr { get; set; }
+        public decimal prctlpacr { get; set; }
+        public Int64 prctldmmr { get; set; }
+        public Int64 prctlnmxr { get; set; }
+        public DateTime prctlfprc { get; set; }
+        public string prctlusrl { get; set; }
+        public string prctldate { get; set; }
+        public string prctlevto { get; set; }
+    }
+
 
     public class PRDIF_RESPONSE
     {

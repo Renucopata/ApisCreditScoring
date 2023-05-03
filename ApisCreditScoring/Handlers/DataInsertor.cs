@@ -909,6 +909,293 @@ namespace ApisCreditScoring.Handlers
         }
 
 
+        public PROCEDURE_RESULT_RESPONSE insertGbhpr(List<GBHPR_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBHPR_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBHPR", conexion);
+
+                        cmd.Parameters.AddWithValue("gbhprcage", register.gbhprcage);
+                        cmd.Parameters.AddWithValue("gbhprcpre", register.gbhprcpre);
+                        cmd.Parameters.AddWithValue("gbhprcfun", register.gbhprcfun);
+                        cmd.Parameters.AddWithValue("gbhprmdes", register.gbhprmdes);
+                        cmd.Parameters.AddWithValue("gbhprcmon", register.gbhprcmon);
+                        cmd.Parameters.AddWithValue("gbhprtasa", register.gbhprtasa);
+                        cmd.Parameters.AddWithValue("gbhprdmor", register.gbhprdmor);
+                        cmd.Parameters.AddWithValue("gbhprcpen", register.gbhprcpen);
+                        
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+        public PROCEDURE_RESULT_RESPONSE insertGbhsv(List<GBHSV_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBHSV_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBHSV", conexion);
+
+                        cmd.Parameters.AddWithValue("gbhsvnmod", register.gbhsvnmod);
+                        cmd.Parameters.AddWithValue("gbhsvtipo", register.gbhsvtipo);
+                        cmd.Parameters.AddWithValue("gbhsvnopr", register.gbhsvnopr);
+                        cmd.Parameters.AddWithValue("gbhsvcarg", register.gbhsvcarg);
+                        cmd.Parameters.AddWithValue("gbhsvcmon", register.gbhsvcmon);
+                        cmd.Parameters.AddWithValue("gbhsvmont", register.gbhsvmont);
+                        cmd.Parameters.AddWithValue("gbhsvfech", register.gbhsvfech);
+                        cmd.Parameters.AddWithValue("gbhsvfupg", register.gbhsvfupg);
+                        cmd.Parameters.AddWithValue("gbhsvfpvc", register.gbhsvfpvc);
+                        cmd.Parameters.AddWithValue("gbhsvsald", register.gbhsvsald);
+                        cmd.Parameters.AddWithValue("gbhsvmrcb", register.gbhsvmrcb);
+                        cmd.Parameters.AddWithValue("gbhsvplaz", register.gbhsvplaz);
+                        cmd.Parameters.AddWithValue("gbhsvagen", register.gbhsvagen);
+                        cmd.Parameters.AddWithValue("gbhsvuser", register.gbhsvuser);
+                        cmd.Parameters.AddWithValue("gbhsvhora", register.gbhsvhora);
+                        cmd.Parameters.AddWithValue("gbhsvfpro", register.gbhsvfpro);
+                        cmd.Parameters.AddWithValue("gbhsvbien", register.gbhsvbien);
+                        cmd.Parameters.AddWithValue("gbhsvcage", register.gbhsvcage);
+                        cmd.Parameters.AddWithValue("gbhsvtman", register.gbhsvtman);
+                        cmd.Parameters.AddWithValue("gbhsvcalf", register.gbhsvcalf);
+                        cmd.Parameters.AddWithValue("gbhsvclas", register.gbhsvclas);
+                        cmd.Parameters.AddWithValue("gbhsvstat", register.gbhsvstat);
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+        public PROCEDURE_RESULT_RESPONSE insertGbhtr(List<GBHTR_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBHTR_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBHTR", conexion);
+
+                        cmd.Parameters.AddWithValue("gbhtrntra", register.gbhtrntra);
+                        cmd.Parameters.AddWithValue("gbhtrcage", register.gbhtrcage);
+                        cmd.Parameters.AddWithValue("gbhtrftra", register.gbhtrftra);
+                        cmd.Parameters.AddWithValue("gbhtrfdev", register.gbhtrfdev);
+                        cmd.Parameters.AddWithValue("gbhtrcmnt", register.gbhtrcmnt);
+                        cmd.Parameters.AddWithValue("gbhtrcmnd", register.gbhtrcmnd);
+                        cmd.Parameters.AddWithValue("gbhtriare", register.gbhtriare);
+                        cmd.Parameters.AddWithValue("gbhtriret", register.gbhtriret);
+                        cmd.Parameters.AddWithValue("gbhtrcmon", register.gbhtrcmon);
+                        cmd.Parameters.AddWithValue("gbhtrcfrt", register.gbhtrcfrt);
+                        cmd.Parameters.AddWithValue("gbhtrtcfr", register.gbhtrtcfr);
+                        cmd.Parameters.AddWithValue("gbhtrcfdv", register.gbhtrcfdv);
+                        cmd.Parameters.AddWithValue("gbhtrtcfd", register.gbhtrtcfd);
+                        cmd.Parameters.AddWithValue("gbhtrscgs", register.gbhtrscgs);
+                        cmd.Parameters.AddWithValue("gbhtrsret", register.gbhtrsret);
+                        cmd.Parameters.AddWithValue("gbhtruser", register.gbhtruser);
+                        cmd.Parameters.AddWithValue("gbhtrhora", register.gbhtrhora);
+                        cmd.Parameters.AddWithValue("gbhtrfpro", register.gbhtrfpro);
+                        cmd.Parameters.AddWithValue("gbhtrusrd", register.gbhtrusrd);
+                        cmd.Parameters.AddWithValue("gbhtrhrad", register.gbhtrhrad);
+                        cmd.Parameters.AddWithValue("gbhtrfchd", register.gbhtrfchd);
+                        cmd.Parameters.AddWithValue("gbhtrplaz", register.gbhtrplaz);
+                        cmd.Parameters.AddWithValue("gbhtragen", register.gbhtragen);
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
+        public PROCEDURE_RESULT_RESPONSE insertGbprc(List<GBPRC_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBPRC_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBPRC", conexion);
+
+                        cmd.Parameters.AddWithValue("gbprcgrup", register.gbprcgrup);
+                        cmd.Parameters.AddWithValue("gbprcdesc", register.gbprcdesc);
+                        cmd.Parameters.AddWithValue("gbprcnive", register.gbprcnive);
+                        cmd.Parameters.AddWithValue("gbprcprof", register.gbprcprof);
+                        
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+        public PROCEDURE_RESULT_RESPONSE insertGbprf(List<GBPRF_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBPRF_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBPRF", conexion);
+
+                        cmd.Parameters.AddWithValue("gbprfprof", register.gbprfprof);
+                        cmd.Parameters.AddWithValue("gbprfdesc", register.gbprfdesc);
+                        cmd.Parameters.AddWithValue("gbprfabre", register.gbprfabre);
+
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+        public PROCEDURE_RESULT_RESPONSE insertGbpte(List<GBPTE_RESPONSE> rows)
+        {
+            var response = new PROCEDURE_RESULT_RESPONSE();
+
+
+            try
+            {
+                var cn = new TarguetConnection();
+                using (var conexion = new SqlConnection(cn.get_cadConexion()))
+                {
+                    conexion.Open();
+                    foreach (GBPTE_RESPONSE register in rows)
+                    {
+                        SqlCommand cmd = new SqlCommand("SP_INSERT_GBPTE", conexion);
+
+                        cmd.Parameters.AddWithValue("gbptetemp", register.gbptetemp);
+                        cmd.Parameters.AddWithValue("gbpteinde", register.gbpteinde);
+
+
+
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                response.procedureComplete = true;
+                response.message = "Procedure successfully completed";
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                response.procedureComplete = false;
+                response.message = error;
+            }
+
+            return response;
+        }
+
+
 
         //pRESTAMOS COMERCIALES INSERTORS
 
